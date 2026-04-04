@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMood | Find Work, Fast</title>
+  <meta
+    name="description"
+    content="WorkMood helps workers find nearby job opportunities quickly with transparent earnings, secure profiles, and instant work requests."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --panel: rgba(15, 23, 42, 0.72);
+      --panel-strong: rgba(15, 23, 42, 0.95);
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #e5eefb;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-strong: #0ea5e9;
+      --success: #22c55e;
+      --shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(226, 246, 255, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 24%),
+        linear-gradient(135deg, #020617 0%, #081120 45%, #0f172a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      color: #bfeaff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 6, 23, 0.58);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.1rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #001018;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: #d7e6f5;
+      font-size: 0.96rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-size: 0.96rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: #03131d;
+      box-shadow: 0 16px 34px rgba(14, 165, 233, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
+      max-width: 760px;
+    }
+
+    .hero h1 span {
+      color: #a5ebff;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+      max-width: 620px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .phone-shell {
+      position: relative;
+      margin-left: auto;
+      width: min(430px, 100%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+      border-radius: 34px;
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: 0 30px 80px rgba(2, 6, 23, 0.5);
+    }
+
+    .phone-notch {
+      width: 140px;
+      height: 26px;
+      border-radius: 0 0 18px 18px;
+      background: #020617;
+      margin: 0 auto 18px;
+    }
+
+    .screen {
+      background: linear-gradient(180deg, rgba(7, 14, 26, 1), rgba(15, 23, 42, 1));
+      border-radius: 28px;
+      padding: 18px;
+      min-height: 690px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      color: #c8d7e6;
+      font-size: 0.86rem;
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #91f0b4;
+      font-size: 0.78rem;
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      font-weight: 700;
+    }
+
+    .screen-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .screen-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .screen-card p,
+    .screen-card small,
+    .list li,
+    .pill {
+      color: #b8c6d6;
+    }
+
+    .job-card {
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.16), rgba(255,255,255,0.04));
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+
+    .job-top,
+    .earn-row,
+    .app-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .app-cta {
+      margin-top: 14px;
+    }
+
+    .price {
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      font-size: 0.82rem;
+    }
+
+    .steps,
+    .grid-3,
+    .grid-2,
+    .grid-4,
+    .faq-list,
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li,
+    .metric-label,
+    .faq p,
+    .footer-copy,
+    .footer-links a,
+    .footer-bottom {
+      color: var(--muted);
+    }
+
+    .icon-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      color: #a8e7fb;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #03131d;
+      font-weight: 900;
+      margin-bottom: 16px;
+      box-shadow: 0 14px 24px rgba(14, 165, 233, 0.24);
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(34, 197, 94, 0.12);
+      color: #8ef2b3;
+      font-size: 0.8rem;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    .metric-card {
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .metric-value {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .testimonial {
+      position: relative;
+    }
+
+    .quote {
+      font-size: 2.6rem;
+      line-height: 1;
+      color: rgba(56, 189, 248, 0.35);
+      margin-bottom: 10px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.9), rgba(37, 99, 235, 0.9));
+      display: grid;
+      place-items: center;
+      color: #03131d;
+      font-weight: 900;
+    }
+
+    .faq {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .cta-panel {
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(37, 99, 235, 0.12), rgba(255,255,255,0.03));
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      padding: 60px 0 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      background: rgba(2, 6, 23, 0.55);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      margin-bottom: 28px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-links h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .grid-4,
+      .grid-3,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-actions .btn-secondary {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .site-header.open .nav-panel {
+        display: block;
+      }
+
+      .nav-panel {
+        display: none;
+        padding-bottom: 18px;
+      }
+
+      .mobile-links {
+        display: grid;
+        gap: 12px;
+        padding: 12px 0 6px;
+      }
+
+      .mobile-links a,
+      .mobile-links button {
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        color: white;
+        font: inherit;
+        text-align: left;
+      }
+
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .grid-4,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .screen {
+        min-height: auto;
+      }
+
+      .cta-panel {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 78px 0;
+      }
+
+      .btn,
+      .mobile-links button,
+      .mobile-links a {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .phone-shell {
+        padding: 14px;
+      }
+
+      .screen {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="WorkMood Home">
+        <span class="brand-mark">W</span>
+        <span>WorkMood</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#how-it-works">How it Works</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#categories">Job Types</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#download">See Demo</a>
+        <a class="btn btn-primary" href="#contact">Contact Us</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <div class="container nav-panel" id="navPanel">
+      <div class="mobile-links">
+        <a href="#how-it-works">How it Works</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#categories">Job Types</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#download">See Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="reveal active">
+          <div class="badge"><span class="dot"></span> India-first workforce platform for instant job opportunities</div>
+          <h1>Find nearby work <span>faster, safer, and smarter.</span></h1>
+          <p>
+            WorkMood helps workers discover local jobs, respond quickly, build trust through verified profiles,
+            and earn with transparent payment details. From helper jobs to skilled labour, work is just a few taps away.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Join as a Worker</a>
+            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>Nearby Jobs</strong>
+              <span>Get work requests based on your location and job type.</span>
+            </div>
+            <div class="stat">
+              <strong>Transparent Earnings</strong>
+              <span>Know job amount, fees, and final earning clearly.</span>
+            </div>
+            <div class="stat">
+              <strong>Verified Profiles</strong>
+              <span>Build trust with profile checks, ratings, and work history.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="phone-shell">
+            <div class="phone-notch"></div>
+            <div class="screen">
+              <div class="screen-top">
+                <span>9:41</span>
+                <span class="mini-badge">● Online</span>
+              </div>
+
+              <div class="screen-card">
+                <small style="display:block; margin-bottom:6px; color:#7dd3fc; font-weight:700;">Welcome back</small>
+                <h3>Ready for today’s jobs</h3>
+                <p>Turn on availability and get matched with nearby work requests in minutes.</p>
+              </div>
+
+              <div class="screen-card job-card">
+                <div class="job-top">
+                  <div>
+                    <small style="display:block; color:#7dd3fc; font-weight:700; margin-bottom:4px;">New request</small>
+                    <h3>Construction Helper</h3>
+                    <p>Salt Lake, Kolkata · 2.1 km away</p>
+                  </div>
+                  <div class="price">₹850</div>
+                </div>
+                <div class="pill-row">
+                  <span class="pill">8 hours</span>
+                  <span class="pill">Same day</span>
+                  <span class="pill">Cash / Online</span>
+                </div>
+                <div class="app-cta">
+                  <button class="btn btn-secondary" style="padding: 12px 16px;">Skip</button>
+                  <button class="btn btn-primary" style="padding: 12px 16px;">Accept Job</button>
+                </div>
+              </div>
+
+              <div class="screen-card">
+                <div class="earn-row">
+                  <div>
+                    <small style="display:block; color:#7dd3fc; font-weight:700; margin-bottom:4px;">Today’s earnings</small>
+                    <h3>₹1,720</h3>
+                  </div>
+                  <span class="mini-badge" style="background: rgba(56,189,248,0.1); color:#bfeaff; border-color: rgba(56,189,248,0.16);">2 jobs done</span>
+                </div>
+                <div class="pill-row">
+                  <span class="pill">Job amount ₹1,900</span>
+                  <span class="pill">Platform fee ₹180</span>
+                  <span class="pill">Clear settlement</span>
+                </div>
+              </div>
+
+              <div class="screen-card">
+                <small style="display:block; color:#7dd3fc; font-weight:700; margin-bottom:4px;">Popular skills</small>
+                <div class="pill-row">
+                  <span class="pill">Loading / Unloading</span>
+                  <span class="pill">Cleaning</span>
+                  <span class="pill">Electrician</span>
+                  <span class="pill">Helper</span>
+                  <span class="pill">Painter</span>
+                  <span class="pill">Plumber</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Simple worker journey</div>
+          <h2 class="section-title">How WorkMood works for workers</h2>
+          <p class="section-copy">
+            Designed to be simple even for first-time users. Create your profile, choose your skills, and start receiving nearby job opportunities.
+          </p>
+        </div>
+
+        <div class="steps grid-3" style="margin-top: 34px;">
+          <div class="card reveal">
+            <span class="step-number">1</span>
+            <h3>Create your profile</h3>
+            <p>Add your phone number, basic details, skill category, work area, and identity verification to build trust.</p>
+          </div>
+          <div class="card reveal">
+            <span class="step-number">2</span>
+            <h3>Get nearby job alerts</h3>
+            <p>Receive work requests based on location, availability, skill, and the type of work you want to do.</p>
+          </div>
+          <div class="card reveal">
+            <span class="step-number">3</span>
+            <h3>Accept and earn</h3>
+            <p>Review the job amount, timing, distance, and payment method before accepting. After completion, your earnings stay clear and visible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="container grid-2" style="align-items: start;">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Made for trust and clarity</div>
+          <h2 class="section-title">Why workers choose WorkMood</h2>
+          <p class="section-copy">
+            The platform focuses on fairness, speed, and confidence. Workers can see opportunities faster and understand exactly what each job offers.
+          </p>
+
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Transparent earnings breakdown before and after each job.</span></li>
+            <li><span class="check">✓</span><span>Location-based job discovery to reduce unnecessary travel.</span></li>
+            <li><span class="check">✓</span><span>Ratings and verified profiles to improve credibility over time.</span></li>
+            <li><span class="check">✓</span><span>Instant and scheduled work opportunities in one app.</span></li>
+            <li><span class="check">✓</span><span>Flexible payment support for both cash and online modes.</span></li>
+          </ul>
+        </div>
+
+        <div class="grid-2">
+          <div class="card reveal">
+            <div class="icon-wrap">⚡</div>
+            <h3>Fast response</h3>
+            <p>Open the app, see active jobs near you, and reply quickly before the opportunity is gone.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon-wrap">🛡️</div>
+            <h3>Safer work network</h3>
+            <p>Verified identity, rating systems, and profile visibility help workers gain more trust.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon-wrap">📍</div>
+            <h3>Nearby matching</h3>
+            <p>Get work based on where you are so you spend less time searching and more time earning.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon-wrap">💸</div>
+            <h3>Clear payment flow</h3>
+            <p>Know exactly what the customer pays and what amount reaches you after platform charges.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Multiple work categories</div>
+          <h2 class="section-title">Work opportunities across everyday job types</h2>
+          <p class="section-copy">
+            WorkMood supports both skilled and non-skilled categories so more workers can find the right opportunity.
+          </p>
+        </div>
+
+        <div class="grid-4" style="margin-top: 34px;">
+          <div class="card reveal"><div class="icon-wrap">🧱</div><h3>Construction Helper</h3><p>Daily support roles for site work, loading, lifting, and general assistance.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🧹</div><h3>Cleaning Jobs</h3><p>Home, office, shop, and one-time cleaning work with flexible timings.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🚚</div><h3>Loading & Unloading</h3><p>Fast local work for shifting, delivery support, and stock movement tasks.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🔧</div><h3>Skilled Work</h3><p>Jobs for electricians, plumbers, painters, technicians, and other skilled roles.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="badge reveal"><span class="dot"></span> Platform impact</div>
+        <h2 class="section-title reveal">Built for growth, trust, and repeat work</h2>
+        <div class="grid-4" style="margin-top: 34px;">
+          <div class="card metric-card reveal">
+            <div class="metric-value">24/7</div>
+            <div class="metric-label">Job discovery support</div>
+          </div>
+          <div class="card metric-card reveal">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Transparent payout view</div>
+          </div>
+          <div class="card metric-card reveal">
+            <div class="metric-value">2 Modes</div>
+            <div class="metric-label">Instant and scheduled work</div>
+          </div>
+          <div class="card metric-card reveal">
+            <div class="metric-value">Local</div>
+            <div class="metric-label">Area-first matching logic</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Worker voices</div>
+          <h2 class="section-title">What a strong landing page should show</h2>
+          <p class="section-copy">These example testimonials make the site feel more real and trustworthy for visitors.</p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 34px;">
+          <div class="card testimonial reveal">
+            <div class="quote">“</div>
+            <p>I can quickly see nearby jobs and decide whether I want to accept. The payment breakdown feels clear and fair.</p>
+            <div class="person"><div class="avatar">R</div><div><strong>Raju</strong><br><span class="metric-label">Construction helper</span></div></div>
+          </div>
+          <div class="card testimonial reveal">
+            <div class="quote">“</div>
+            <p>The app gives me more confidence because profile details and work history matter. That helps me get repeat jobs.</p>
+            <div class="person"><div class="avatar">S</div><div><strong>Shabana</strong><br><span class="metric-label">Cleaning professional</span></div></div>
+          </div>
+          <div class="card testimonial reveal">
+            <div class="quote">“</div>
+            <p>I like that I can receive work based on area. It saves time and helps me focus on jobs that actually suit me.</p>
+            <div class="person"><div class="avatar">A</div><div><strong>Arif</strong><br><span class="metric-label">Electrician</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Common questions</div>
+          <h2 class="section-title">Frequently asked questions</h2>
+        </div>
+
+        <div class="faq-list" style="margin-top: 34px;">
+          <div class="faq reveal">
+            <h3>Who can use WorkMood?</h3>
+            <p>Workers looking for local daily, instant, or scheduled job opportunities across skilled and non-skilled categories.</p>
+          </div>
+          <div class="faq reveal">
+            <h3>How do payments work?</h3>
+            <p>The app can support cash and online payment flows, while keeping the worker’s earnings breakdown visible and easy to understand.</p>
+          </div>
+          <div class="faq reveal">
+            <h3>Why is location important?</h3>
+            <p>Location helps match workers with nearby jobs so travel is reduced and job acceptance becomes faster.</p>
+          </div>
+          <div class="faq reveal">
+            <h3>Can skilled and non-skilled workers both join?</h3>
+            <p>Yes. The platform is designed to support a wide range of work categories, from helpers and cleaners to electricians and plumbers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <div class="badge" style="margin-bottom: 12px;"><span class="dot"></span> Launch-ready landing page</div>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.1rem); line-height:1.05; margin-bottom: 10px;">Ready to turn this into your real startup website?</h2>
+            <p class="section-copy" style="max-width: 640px;">This version is designed like a real product landing page with stronger sections, clear messaging, better trust signals, and a more professional mobile-style hero.</p>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#contact">Contact Us</a>
+            <a class="btn btn-secondary" href="#home">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 16px;">
+            <span class="brand-mark">W</span>
+            <span>WorkMood</span>
+          </div>
+          <p class="footer-copy">A modern workforce platform designed to help workers find local opportunities with more speed, trust, and transparency.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#home">Home</a>
+          <a href="#how-it-works">How it Works</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#categories">Job Types</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:hello@workmood.in">hello@workmood.in</a>
+          <a href="tel:+919999999999">+91 99999 99999</a>
+          <span>Kolkata, West Bengal, India</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 WorkMood. All rights reserved.</span>
+        <span>Built for workers first.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    const toggle = document.getElementById('menuToggle');
+    const navPanel = document.getElementById('navPanel');
+    const mobileLinks = navPanel.querySelectorAll('a');
+
+    toggle?.addEventListener('click', () => {
+      header.classList.toggle('open');
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => header.classList.remove('open'));
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+      if (index === 0) return;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
