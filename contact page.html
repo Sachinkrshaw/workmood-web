@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMood | Contact Us</title>
+  <meta
+    name="description"
+    content="Get in touch with WorkMood for support, partnerships, or product questions."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared-shell.css" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      padding: 56px 0 100px;
+    }
+
+    .page-hero,
+    .contact-grid,
+    .contact-card,
+    .contact-form,
+    .note {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .page-hero {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 26px;
+      border-radius: 32px;
+      padding: 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-strong);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .contact-grid {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      border-radius: 32px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-card,
+    .contact-form,
+    .note {
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .contact-card h2,
+    .contact-form h2 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p,
+    .note p,
+    .contact-form p,
+    label,
+    .status {
+      color: var(--muted);
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .detail {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(240, 249, 255, 0.9);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .detail strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #050505;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 14px 16px;
+      font: inherit;
+      color: #050505;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.2);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .status {
+      min-height: 24px;
+      font-size: 0.95rem;
+    }
+
+    .status.success {
+      color: #0f766e;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-top: 34px;
+      }
+
+      .page-hero,
+      .contact-grid {
+        padding: 24px;
+      }
+
+      .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body data-page="contact">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="eyebrow"><span class="dot"></span> Reach the WorkMood team</div>
+      <h1>Contact us for support, partnerships, or product questions.</h1>
+      <p class="hero-copy">
+        Whether you are hiring locally, joining as a worker, or reviewing the platform for launch,
+        we are happy to help. Send us a message and your default mail app will open with your draft ready.
+      </p>
+    </section>
+
+    <section class="contact-grid">
+      <div class="stack">
+        <article class="contact-card">
+          <h2>Contact details</h2>
+          <p>Use any of the options below if you want to talk to us directly.</p>
+          <div class="detail-list">
+            <div class="detail">
+              <strong>Email</strong>
+              <a href="mailto:hello@workmood.in">hello@workmood.in</a>
+            </div>
+            <div class="detail">
+              <strong>Phone</strong>
+              <a href="tel:+919999999999">+91 99999 99999</a>
+            </div>
+            <div class="detail">
+              <strong>Location</strong>
+              <span>Kolkata, West Bengal, India</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="note">
+          <h2>What to include</h2>
+          <p>
+            Share whether you are a worker, a hirer, or a partner, along with your city and the
+            kind of help you need. That makes follow-up much faster.
+          </p>
+        </article>
+      </div>
+
+      <section class="contact-form">
+        <h2>Send a message</h2>
+        <p>We do not have a backend form handler in this site yet, so this sends through your email app.</p>
+
+        <form id="contactForm">
+          <label for="name">
+            Your name
+            <input id="name" name="name" type="text" placeholder="Enter your name" required />
+          </label>
+
+          <label for="email">
+            Your email
+            <input id="email" name="email" type="email" placeholder="Enter your email" required />
+          </label>
+
+          <label for="subject">
+            Subject
+            <input id="subject" name="subject" type="text" placeholder="What would you like help with?" required />
+          </label>
+
+          <label for="message">
+            Message
+            <textarea id="message" name="message" placeholder="Tell us a bit more about your request." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Open email draft</button>
+            <span class="status" id="formStatus" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="shared-shell.js"></script>
+  <script>
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const body = [
+        "Name: " + name,
+        "Email: " + email,
+        "",
+        message
+      ].join("\n");
+
+      const mailto = "mailto:hello@workmood.in?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+      status.textContent = "Opening your email app with the message pre-filled.";
+      status.className = "status success";
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
