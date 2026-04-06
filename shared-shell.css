@@ -76,6 +76,15 @@ a {
   box-shadow: 0 10px 30px rgba(56, 189, 248, 0.22);
 }
 
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.22);
+  flex: 0 0 auto;
+}
+
 .nav-links {
   display: flex;
   align-items: center;

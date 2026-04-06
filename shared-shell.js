@@ -11,7 +11,7 @@
     forHire: isHome ? "#for-hire" : homeUrl + "#for-hire",
     forWorker: isHome ? "#for-worker" : homeUrl + "#for-worker",
     faq: isHome ? "#faq" : homeUrl + "#faq",
-    demo: isHome ? "#download" : homeUrl + "#download",
+    demo: "app-launch-soon.html",
     contact: "contact%20page.html",
     privacy: "Privacy%20Policy.html",
     payments: "Payments%20%26%20Refund%20Policy.html",
@@ -34,7 +34,7 @@
       <header class="site-header" id="header">
         <div class="container nav">
           <a href="${route.home}" class="brand" aria-label="WorkMood Home">
-            <span class="brand-mark">W</span>
+            <img class="brand-logo" src="assets/workmood-logo.png" alt="" aria-hidden="true" />
             <span>WorkMood</span>
           </a>
 
@@ -77,7 +77,7 @@
           <div class="footer-grid">
             <div>
               <div class="brand" style="margin-bottom: 16px;">
-                <span class="brand-mark">W</span>
+                <img class="brand-logo" src="assets/workmood-logo.png" alt="" aria-hidden="true" />
                 <span>WorkMood</span>
               </div>
               <p class="footer-copy">A modern workforce platform designed to help workers find local opportunities with more speed, trust, and transparency.</p>
@@ -110,7 +110,7 @@
 
           <div class="footer-bottom">
             <span>&copy; 2026 WorkMood. All rights reserved.</span>
-            <span>Built for workers first.</span>
+            <span></span>
           </div>
         </div>
       </footer>
