@@ -132,6 +132,10 @@
       color: #050505;
     }
 
+    .call-action {
+      margin-top: 14px;
+    }
+
     form {
       display: grid;
       gap: 16px;
@@ -185,6 +189,10 @@
       color: #0f766e;
     }
 
+    .status.error {
+      color: #b91c1c;
+    }
+
     @media (max-width: 900px) {
       .contact-grid {
         grid-template-columns: 1fr;
@@ -229,11 +237,14 @@
           <div class="detail-list">
             <div class="detail">
               <strong>Email</strong>
-              <a href="mailto:hello@workmood.in">hello@workmood.in</a>
+              <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a>
             </div>
             <div class="detail">
               <strong>Phone</strong>
-              <a href="tel:+919999999999">+91 99999 99999</a>
+              <a href="tel:+916291822133">+91 6291822133</a>
+              <div class="call-action">
+                <a class="btn btn-primary" href="tel:+916291822133">Call Us</a>
+              </div>
             </div>
             <div class="detail">
               <strong>Location</strong>
@@ -253,7 +264,7 @@
 
       <section class="contact-form">
         <h2>Send a message</h2>
-        <p>We do not have a backend form handler in this site yet, so this sends through your email app.</p>
+        <p>Share your details and the WorkMood team will review your message.</p>
 
         <form id="contactForm">
           <label for="name">
@@ -277,7 +288,7 @@
           </label>
 
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Open email draft</button>
+            <button class="btn btn-primary" id="submitButton" type="submit">Send message</button>
             <span class="status" id="formStatus" aria-live="polite"></span>
           </div>
         </form>
@@ -288,11 +299,29 @@
   <div id="site-footer"></div>
 
   <script src="shared-shell.js"></script>
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import {
+      addDoc,
+      collection,
+      getFirestore,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+    import { firebaseConfig } from "./firebase-config.js";
+
+    const CONTACT_COLLECTION = "web_responses";
     const form = document.getElementById("contactForm");
     const status = document.getElementById("formStatus");
+    const submitButton = document.getElementById("submitButton");
 
-    form.addEventListener("submit", function (event) {
+    const isFirebaseConfigured = Object.values(firebaseConfig).every(function (value) {
+      return value && !value.startsWith("PASTE_");
+    });
+
+    const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
+    const db = app ? getFirestore(app) : null;
+
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
       const name = document.getElementById("name").value.trim();
@@ -300,21 +329,38 @@
       const subject = document.getElementById("subject").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const body = [
-        "Name: " + name,
-        "Email: " + email,
-        "",
-        message
-      ].join("\n");
+      if (!isFirebaseConfigured || !db) {
+        status.textContent = "Firebase config is not set yet. Add your Firebase web app details in firebase-config.js.";
+        status.className = "status error";
+        return;
+      }
 
-      const mailto = "mailto:hello@workmood.in?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+      submitButton.disabled = true;
+      status.textContent = "Sending your message...";
+      status.className = "status";
 
-      status.textContent = "Opening your email app with the message pre-filled.";
-      status.className = "status success";
-      window.location.href = mailto;
+      try {
+        await addDoc(collection(db, CONTACT_COLLECTION), {
+          name,
+          email,
+          subject,
+          message,
+          source: "WorkMood contact page",
+          pageUrl: window.location.href,
+          userAgent: window.navigator.userAgent,
+          createdAt: serverTimestamp()
+        });
+
+        form.reset();
+        status.textContent = "Message sent. We will get back to you soon.";
+        status.className = "status success";
+      } catch (error) {
+        console.error("Firebase contact form error:", error);
+        status.textContent = "Message could not be sent. Please try again or email workmood26@gmail.com.";
+        status.className = "status error";
+      } finally {
+        submitButton.disabled = false;
+      }
     });
   </script>
 </body>

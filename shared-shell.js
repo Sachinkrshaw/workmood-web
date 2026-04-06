@@ -1,7 +1,9 @@
 (function () {
   const page = document.body.dataset.page || "home";
   const isHome = page === "home";
-  const homeUrl = "workmood%20web.html";
+  const homeUrl = "index.html";
+  const phoneHref = "tel:+916291822133";
+  const phoneLabel = "+91 6291822133";
 
   const route = {
     home: isHome ? "#home" : homeUrl,
@@ -12,6 +14,7 @@
     demo: isHome ? "#download" : homeUrl + "#download",
     contact: "contact%20page.html",
     privacy: "Privacy%20Policy.html",
+    payments: "Payments%20%26%20Refund%20Policy.html",
     terms: "Terms&Condi.html"
   };
 
@@ -19,6 +22,7 @@
     home: page === "home" ? route.home : null,
     contact: page === "contact" ? route.contact : null,
     privacy: page === "privacy" ? route.privacy : null,
+    payments: page === "payments" ? route.payments : null,
     terms: page === "terms" ? route.terms : null
   };
 
@@ -44,8 +48,8 @@
           </nav>
 
           <div class="nav-actions">
-            <a class="btn btn-secondary" href="${route.demo}">See Demo</a>
-            <a class="btn btn-primary" href="${route.contact}">Contact Us</a>
+            <a class="btn btn-secondary" href="${route.demo}">Get Started</a>
+            <a class="btn btn-primary" href="${phoneHref}">Call Us</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
           </div>
         </div>
@@ -58,7 +62,8 @@
             <a href="${route.forWorker}">For Worker</a>
             <a href="${route.faq}">FAQ</a>
             <a href="${route.contact}"${currentPage.contact ? ' aria-current="page"' : ""}>Contact</a>
-            <a href="${route.demo}">See Demo</a>
+            <a href="${route.demo}">Get Started</a>
+            <a href="${phoneHref}">Call Us</a>
           </div>
         </div>
       </header>
@@ -87,17 +92,18 @@
             </div>
 
             <div class="footer-links">
-              <h4>Company</h4>
+              <h4>Quick Links</h4>
               <a href="${route.faq}">FAQ</a>
               <a href="${route.contact}">Contact</a>
               <a href="${route.privacy}"${currentPage.privacy ? ' aria-current="page"' : ""}>Privacy Policy</a>
+              <a href="${route.payments}"${currentPage.payments ? ' aria-current="page"' : ""}>Payments &amp; Refund Policy</a>
               <a href="${route.terms}"${currentPage.terms ? ' aria-current="page"' : ""}>Terms &amp; Conditions</a>
             </div>
 
             <div class="footer-links">
               <h4>Contact</h4>
-              <a href="mailto:hello@workmood.in">hello@workmood.in</a>
-              <a href="tel:+919999999999">+91 99999 99999</a>
+              <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a>
+              <a href="${phoneHref}">${phoneLabel}</a>
               <span>Kolkata, West Bengal, India</span>
             </div>
           </div>
