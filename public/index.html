@@ -29,6 +29,10 @@
       --primary: #7dd3fc;
       --primary-strong: #38bdf8;
       --success: #38bdf8;
+      --accent: #f97316;
+      --accent-strong: #ea580c;
+      --accent-soft: #fff2e6;
+      --accent-muted: #b45309;
       --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
       --radius-xl: 28px;
       --radius-lg: 20px;
@@ -49,6 +53,7 @@
     body {
       font-family: 'Inter', sans-serif;
       background:
+        radial-gradient(circle at 82% 18%, rgba(249, 115, 22, 0.1), transparent 22%),
         radial-gradient(circle at top left, rgba(125, 211, 252, 0.3), transparent 32%),
         radial-gradient(circle at top right, rgba(186, 230, 253, 0.45), transparent 28%),
         linear-gradient(160deg, #ffffff 0%, #f4fbff 48%, #dff3ff 100%);
@@ -97,8 +102,8 @@
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(125, 211, 252, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(249, 115, 22, 0.12));
+      border: 1px solid rgba(249, 115, 22, 0.14);
       color: #0f172a;
       font-size: 0.9rem;
       font-weight: 600;
@@ -109,8 +114,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(249, 115, 22, 0.35);
     }
 
     .site-header {
@@ -164,7 +169,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .nav-actions {
@@ -192,15 +197,20 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      color: #050505;
-      box-shadow: 0 16px 34px rgba(56, 189, 248, 0.24);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(249, 115, 22, 0.24);
     }
 
     .btn-secondary {
       background: rgba(255, 255, 255, 0.84);
       color: var(--text);
       border: 1px solid rgba(15, 23, 42, 0.14);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(249, 115, 22, 0.22);
+      background: rgba(255, 247, 237, 0.9);
     }
 
     .menu-toggle {
@@ -237,7 +247,7 @@
     }
 
     .hero h1 span {
-      color: #0ea5e9;
+      color: var(--accent);
     }
 
     .hero p {
@@ -268,6 +278,7 @@
       border-radius: 18px;
       padding: 18px;
       box-shadow: var(--shadow);
+      height: 100%;
     }
 
     .stat strong {
@@ -283,6 +294,9 @@
 
     .hero-visual {
       position: relative;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 56px;
     }
 
     .phone-shell {
@@ -305,93 +319,560 @@
     }
 
     .screen {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(232, 246, 255, 1));
+      background: linear-gradient(180deg, #fafdff 0%, #eef7ff 100%);
       border-radius: 28px;
-      padding: 18px;
       min-height: 690px;
       overflow: hidden;
       position: relative;
     }
 
-    .screen-top {
+    .app-screen {
+      min-height: 690px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      color: #425466;
-      font-size: 0.86rem;
+      flex-direction: column;
     }
 
-    .mini-badge {
+    .app-content {
+      padding: 24px 22px 108px;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .app-header h3 {
+      font-size: 2.05rem;
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 210px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .action-icon,
+    .nav-icon,
+    .feature-icon,
+    .service-chip {
+      display: grid;
+      place-items: center;
+    }
+
+    .action-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #dff1ff;
+      color: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      box-shadow: 0 10px 24px rgba(148, 163, 184, 0.14);
+      font-size: 1.35rem;
+    }
+
+    .action-icon.whatsapp {
+      background: rgba(255, 255, 255, 0.94);
+      border-color: rgba(249, 115, 22, 0.35);
+      color: #16a34a;
+    }
+
+    .location-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 16px 36px rgba(148, 163, 184, 0.15);
+      margin-bottom: 20px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #dff1ff;
+      font-size: 1.15rem;
+    }
+
+    .location-copy {
+      min-width: 0;
+    }
+
+    .location-copy small {
+      display: block;
+      margin-bottom: 4px;
+      color: #64748b;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .location-copy strong {
+      display: block;
+      color: #0f172a;
+      font-size: 1rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .update-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(125, 211, 252, 0.18);
-      color: #050505;
-      font-size: 0.78rem;
-      border: 1px solid rgba(56, 189, 248, 0.22);
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 0.92rem;
       font-weight: 700;
     }
 
-    .screen-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 22px;
-      padding: 18px;
-      margin-bottom: 14px;
+    .booking-card,
+    .activity-card {
+      border-radius: 34px;
+      padding: 22px;
+      box-shadow: 0 22px 36px rgba(148, 163, 184, 0.2);
+      margin-bottom: 18px;
     }
 
-    .screen-card h3 {
-      font-size: 1.2rem;
+    .booking-card {
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: #ffffff;
+    }
+
+    .ready-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .booking-card h4 {
+      font-size: 2.15rem;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .booking-card p {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .book-service-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 76px;
+      border-radius: 26px;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .activity-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .activity-card h5 {
+      font-size: 1.05rem;
+      margin: 14px 0 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .activity-card p {
+      color: #64748b;
+      font-size: 0.96rem;
+      line-height: 1.45;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      padding: 12px 10px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 16px 32px rgba(148, 163, 184, 0.2);
+    }
+
+    .nav-item {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      padding: 10px 8px;
+      border-radius: 20px;
+      color: #526277;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .nav-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .nav-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      font-size: 1rem;
+    }
+
+    .floating-panel {
+      position: absolute;
+      right: -54px;
+      bottom: 42px;
+      width: 288px;
+      border-radius: 28px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+    }
+
+    .floating-panel h4 {
+      font-size: 1.35rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       margin-bottom: 8px;
     }
 
-    .screen-card p,
-    .screen-card small,
-    .list li,
-    .pill {
-      color: #425466;
+    .floating-panel p {
+      color: #64748b;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      margin-bottom: 16px;
     }
 
-    .job-card {
-      background: linear-gradient(180deg, rgba(125, 211, 252, 0.26), rgba(255, 255, 255, 0.94));
-      border: 1px solid rgba(56, 189, 248, 0.2);
+    .service-list {
+      display: grid;
+      gap: 10px;
     }
 
-    .job-top,
-    .earn-row,
-    .app-cta {
+    .service-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .service-chip {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .service-chip.blue {
+      background: #dbeeff;
+      color: #0369a1;
+    }
+
+    .service-chip.yellow {
+      background: #fff2bf;
+      color: var(--accent-muted);
+    }
+
+    .service-chip.orange {
+      background: #ffd8a8;
+      color: var(--accent-strong);
+    }
+
+    .service-copy strong {
+      display: block;
+      font-size: 0.94rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .service-copy span {
+      display: block;
+      color: #64748b;
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    .service-plus {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #eef7ff;
+      color: #0f172a;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .worker-showcase {
+      align-items: stretch;
+      margin-top: 34px;
+    }
+
+    .worker-copy.card {
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 249, 255, 0.92));
+      min-height: 634px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .worker-copy h3 {
+      font-size: 1.8rem;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .worker-copy p {
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .worker-points {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .worker-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .worker-points strong {
+      color: #0f172a;
+    }
+
+    .worker-points .check {
+      flex-shrink: 0;
+    }
+
+    .worker-phone {
+      width: min(408px, 100%);
+      margin-left: auto;
+    }
+
+    .worker-screen {
+      min-height: 634px;
+      height: 634px;
+    }
+
+    .worker-screen .app-screen {
+      min-height: 634px;
+    }
+
+    .worker-screen .app-content {
+      padding: 20px 16px 92px;
+    }
+
+    .status-card {
+      border-radius: 28px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      box-shadow: 0 18px 34px rgba(148, 163, 184, 0.16);
+      margin-bottom: 16px;
+    }
+
+    .status-card h5 {
+      font-size: 1.55rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .status-card p {
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .status-switch {
+      width: 214px;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 8px 8px 20px;
+      border-radius: 999px;
+      background: #22c55e;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    }
+
+    .status-switch::after {
+      content: "";
+      width: 82px;
+      height: 52px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+    }
+
+    .worker-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .summary-box {
+      border-radius: 26px;
+      padding: 16px;
+      box-shadow: 0 18px 34px rgba(148, 163, 184, 0.16);
+      min-height: 132px;
+    }
+
+    .summary-box.orange {
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: #ffffff;
+    }
+
+    .summary-box.white {
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      color: #0f172a;
+    }
+
+    .summary-box small {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .summary-box strong {
+      display: block;
+      font-size: 2.35rem;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .summary-box p {
+      color: inherit;
+      opacity: 0.85;
+      font-size: 0.96rem;
+      line-height: 1.35;
+    }
+
+    .topup-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 112px;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 18px;
+      border: 2px solid rgba(249, 115, 22, 0.8);
+      color: var(--accent-muted);
+      font-weight: 800;
+      background: #ffffff;
+    }
+
+    .request-card {
+      border-radius: 30px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 18px 34px rgba(148, 163, 184, 0.16);
+    }
+
+    .request-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      margin-bottom: 12px;
     }
 
-    .app-cta {
-      margin-top: 14px;
-    }
-
-    .price {
-      color: #050505;
+    .request-top small {
+      color: var(--accent-strong);
       font-weight: 800;
-      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .pill {
-      padding: 8px 10px;
+    .request-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      height: 38px;
+      padding: 0 14px;
       border-radius: 999px;
-      background: rgba(240, 249, 255, 0.95);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      font-size: 0.82rem;
+      background: #dff1ff;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .request-card h5 {
+      font-size: 1.65rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .request-location {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #64748b;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .accept-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .steps,
@@ -423,6 +904,7 @@
       padding: 26px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
+      height: 100%;
     }
 
     .card h3 {
@@ -440,14 +922,22 @@
       color: var(--muted);
     }
 
+    .footer-links span {
+      color: var(--muted);
+    }
+
+    .footer-bottom span:empty {
+      display: none;
+    }
+
     .icon-wrap {
       width: 54px;
       height: 54px;
       border-radius: 18px;
       display: grid;
       place-items: center;
-      background: rgba(125, 211, 252, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.18);
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(249, 115, 22, 0.16));
+      border: 1px solid rgba(249, 115, 22, 0.16);
       color: #0f172a;
       font-size: 1.4rem;
       margin-bottom: 18px;
@@ -460,11 +950,11 @@
       width: 38px;
       height: 38px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), #e0f2fe);
-      color: #050505;
+      background: linear-gradient(135deg, var(--accent), #fdba74);
+      color: #ffffff;
       font-weight: 900;
       margin-bottom: 16px;
-      box-shadow: 0 14px 24px rgba(56, 189, 248, 0.22);
+      box-shadow: 0 14px 24px rgba(249, 115, 22, 0.22);
     }
 
     .check-list {
@@ -486,8 +976,8 @@
       border-radius: 999px;
       display: inline-grid;
       place-items: center;
-      background: rgba(125, 211, 252, 0.18);
-      color: #050505;
+      background: rgba(249, 115, 22, 0.12);
+      color: var(--accent-strong);
       font-size: 0.8rem;
       flex: 0 0 auto;
       margin-top: 1px;
@@ -541,6 +1031,7 @@
       border-radius: 18px;
       padding: 22px;
       box-shadow: var(--shadow);
+      height: 100%;
     }
 
     .faq h3 {
@@ -615,6 +1106,16 @@
       .hero-grid {
         align-items: start;
       }
+
+      .hero-visual {
+        padding-right: 0;
+      }
+
+      .floating-panel {
+        position: static;
+        width: 100%;
+        margin-top: 18px;
+      }
     }
 
     @media (max-width: 860px) {
@@ -674,8 +1175,20 @@
         min-height: auto;
       }
 
+      .app-screen {
+        min-height: auto;
+      }
+
       .cta-panel {
         padding: 26px;
+      }
+
+      .worker-copy.card {
+        min-height: auto;
+      }
+
+      .worker-phone {
+        margin: 0 auto;
       }
     }
 
@@ -699,8 +1212,37 @@
         padding: 14px;
       }
 
-      .screen {
-        padding: 14px;
+      .app-content {
+        padding: 18px 14px 104px;
+      }
+
+      .app-header h3 {
+        font-size: 1.8rem;
+      }
+
+      .action-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .worker-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .update-btn {
+        width: 100%;
+      }
+
+      .booking-card h4 {
+        font-size: 1.8rem;
+      }
+
+      .summary-box strong {
+        font-size: 2.6rem;
       }
     }
   </style>
@@ -724,7 +1266,7 @@
 
       <div class="nav-actions">
         <a class="btn btn-secondary" href="app-launch-soon.html">Get Started</a>
-        <a class="btn btn-primary" href="tel:+916291822133">Call Us</a>
+        <a class="btn btn-primary" href="tel:+916291822133">Chat Now</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
       </div>
     </div>
@@ -778,62 +1320,91 @@
           <div class="phone-shell">
             <div class="phone-notch"></div>
             <div class="screen">
-              <div class="screen-top">
-                <span>9:41</span>
-                <span class="mini-badge">● Online</span>
-              </div>
-
-              <div class="screen-card">
-                <small style="display:block; margin-bottom:6px; color:#0ea5e9; font-weight:700;">Welcome back</small>
-                <h3>Ready for today’s jobs</h3>
-                <p>Turn on availability and get matched with nearby work requests in minutes.</p>
-              </div>
-
-              <div class="screen-card job-card">
-                <div class="job-top">
-                  <div>
-                    <small style="display:block; color:#0ea5e9; font-weight:700; margin-bottom:4px;">New request</small>
-                    <h3>Construction Helper</h3>
-                    <p>Salt Lake, Kolkata · 2.1 km away</p>
+              <div class="app-screen">
+                <div class="app-content">
+                  <div class="app-header">
+                    <div>
+                      <small style="display:block; color:#64748b; font-weight:700; margin-bottom:8px;">Customer home</small>
+                      <h3>Hello, Biswajit</h3>
+                    </div>
+                    <div class="header-actions" aria-hidden="true">
+                      <span class="action-icon">📞</span>
+                      <span class="action-icon whatsapp">🟢</span>
+                    </div>
                   </div>
-                  <div class="price">₹850</div>
-                </div>
-                <div class="pill-row">
-                  <span class="pill">8 hours</span>
-                  <span class="pill">Same day</span>
-                  <span class="pill">Cash / Online</span>
-                </div>
-                <div class="app-cta">
-                  <button class="btn btn-secondary" style="padding: 12px 16px;">Skip</button>
-                  <button class="btn btn-primary" style="padding: 12px 16px;">Accept Job</button>
-                </div>
-              </div>
 
-              <div class="screen-card">
-                <div class="earn-row">
-                  <div>
-                    <small style="display:block; color:#0ea5e9; font-weight:700; margin-bottom:4px;">Today’s earnings</small>
-                    <h3>₹1,720</h3>
+                  <div class="location-card">
+                    <span class="feature-icon" aria-hidden="true">📍</span>
+                    <div class="location-copy">
+                      <small>Work location</small>
+                      <strong>7MJCGCV5+3VX3, Ward Number 58, Kolkata</strong>
+                    </div>
+                    <span class="update-btn">Update</span>
                   </div>
-                  <span class="mini-badge" style="background: rgba(125,211,252,0.18); color:#050505; border-color: rgba(56,189,248,0.2);">2 jobs done</span>
+
+                  <div class="booking-card">
+                    <span class="ready-chip">⚡ Ready to book</span>
+                    <h4>Book help near you</h4>
+                    <p>Find workers for daily tasks, urgent help, and skilled jobs in just a few taps.</p>
+                    <div class="book-service-btn">Book Service <span aria-hidden="true">→</span></div>
+                  </div>
+
+                  <div class="activity-card">
+                    <span class="feature-icon" aria-hidden="true">💼</span>
+                    <h5>No active booking right now</h5>
+                    <p>Start a new service request and get matched with nearby workers quickly.</p>
+                  </div>
                 </div>
-                <div class="pill-row">
-                  <span class="pill">Job amount ₹1,900</span>
-                  <span class="pill">Platform fees ₹180</span>
-                  <span class="pill">Clear settlement</span>
+
+                <div class="bottom-nav" aria-hidden="true">
+                  <div class="nav-item active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Home</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">↺</span>
+                    <span>History</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">⌖</span>
+                    <span>Map</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">◉</span>
+                    <span>Profile</span>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="screen-card">
-                <small style="display:block; color:#0ea5e9; font-weight:700; margin-bottom:4px;">Popular skills</small>
-                <div class="pill-row">
-                  <span class="pill">Loading / Unloading</span>
-                  <span class="pill">Cleaning</span>
-                  <span class="pill">Electrician</span>
-                  <span class="pill">Helper</span>
-                  <span class="pill">Painter</span>
-                  <span class="pill">Plumber</span>
+          <div class="floating-panel">
+            <h4>What do you need?</h4>
+            <p>Choose the exact service you want to book and continue with the job details.</p>
+            <div class="service-list">
+              <div class="service-item">
+                <span class="service-chip blue">CL</span>
+                <div class="service-copy">
+                  <strong>Cleaning &amp; Household</strong>
+                  <span>Helpers for daily home tasks</span>
                 </div>
+                <span class="service-plus">+</span>
+              </div>
+              <div class="service-item">
+                <span class="service-chip yellow">EP</span>
+                <div class="service-copy">
+                  <strong>Electrical &amp; Plumbing</strong>
+                  <span>Repair and utility work</span>
+                </div>
+                <span class="service-plus">+</span>
+              </div>
+              <div class="service-item">
+                <span class="service-chip orange">CN</span>
+                <div class="service-copy">
+                  <strong>Construction &amp; Repair</strong>
+                  <span>Skilled site and fixing jobs</span>
+                </div>
+                <span class="service-plus">+</span>
               </div>
             </div>
           </div>
@@ -918,17 +1489,115 @@
       <div class="container">
         <div class="reveal">
           <div class="badge"><span class="dot"></span> Made for job seekers</div>
-          <h2 class="section-title">For worker: find nearby jobs that match your skills</h2>
+          <h2 class="section-title">Find nearby jobs that match your skills</h2>
           <p class="section-copy">
             Whether you do helper work, cleaning, loading, or skilled trades, WorkMood helps you discover local opportunities and respond quickly.
           </p>
         </div>
 
-        <div class="grid-4" style="margin-top: 34px;">
-          <div class="card reveal"><div class="icon-wrap">🧱</div><h3>Construction Helper</h3><p>Pick up daily site work, support tasks, and labour jobs close to your area.</p></div>
-          <div class="card reveal"><div class="icon-wrap">🧹</div><h3>Cleaning Work</h3><p>Find home, office, and shop cleaning jobs with flexible timing options.</p></div>
-          <div class="card reveal"><div class="icon-wrap">🚚</div><h3>Loading & Unloading</h3><p>Get matched with shifting, delivery, warehouse, and short-duration lifting work.</p></div>
-          <div class="card reveal"><div class="icon-wrap">🔧</div><h3>Skilled Work</h3><p>Accept local jobs for electricians, plumbers, painters, technicians, and other trades.</p></div>
+        <div class="grid-3" style="margin-top: 34px;">
+          <div class="card reveal"><div class="icon-wrap">🧹</div><h3>Home Cleaning</h3><p>Popular in Cleaning &amp; Household for home help and regular cleaning requests.</p></div>
+          <div class="card reveal"><div class="icon-wrap">⚡</div><h3>Electrician</h3><p>A high-demand Electrical &amp; Plumbing service for urgent repairs and daily fix work.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🔧</div><h3>Plumber</h3><p>Commonly requested for leakage, fittings, and fast home or shop plumbing jobs.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🧱</div><h3>Mason (Rajmistri)</h3><p>One of the most needed Construction &amp; Repair services for local site work.</p></div>
+          <div class="card reveal"><div class="icon-wrap">❄️</div><h3>AC Technician</h3><p>A popular Mechanical &amp; Technical service for cooling, servicing, and repair jobs.</p></div>
+          <div class="card reveal"><div class="icon-wrap">📦</div><h3>Loading / Unloading Helper</h3><p>Regularly needed under General Labour / Helper for shifting and goods handling work.</p></div>
+        </div>
+
+        <div class="grid-2 worker-showcase">
+          <div class="worker-copy card reveal">
+            <div class="badge" style="margin-bottom: 14px;"><span class="dot"></span> Worker dashboard preview</div>
+            <h3>Keep workers online, visible, and ready to accept jobs</h3>
+            <p>
+              This view shows the worker side of WorkMood with instant status control, earnings visibility, wallet access, and live job requests in one simple screen.
+            </p>
+            <ul class="worker-points">
+              <li><span class="check">✓</span><span><strong>Go online fast:</strong> workers can switch availability anytime and start receiving nearby requests.</span></li>
+              <li><span class="check">✓</span><span><strong>Track earnings clearly:</strong> total earnings and wallet balance stay visible without confusion.</span></li>
+              <li><span class="check">✓</span><span><strong>Accept real jobs faster:</strong> new requests show location and action in a single tap flow.</span></li>
+            </ul>
+          </div>
+
+          <div class="phone-shell worker-phone reveal">
+            <div class="phone-notch"></div>
+            <div class="screen worker-screen">
+              <div class="app-screen">
+                <div class="app-content">
+                  <div class="app-header">
+                    <div>
+                      <small style="display:block; color:#64748b; font-weight:700; margin-bottom:8px;">Worker home</small>
+                      <h3>Hello, Sachin Kumar</h3>
+                    </div>
+                    <div class="header-actions" aria-hidden="true">
+                      <span class="action-icon">📞</span>
+                      <span class="action-icon whatsapp">🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="location-card">
+                    <span class="feature-icon" aria-hidden="true">📍</span>
+                    <div class="location-copy">
+                      <small>Work location</small>
+                      <strong>7MJCGCV5+3VX3, Ward Number 58, Kolkata</strong>
+                    </div>
+                    <span class="update-btn">Update</span>
+                  </div>
+
+                  <div class="status-card">
+                    <h5>Go Online</h5>
+                    <p>Switch your work status anytime</p>
+                    <div class="status-switch">OFF</div>
+                  </div>
+
+                  <div class="worker-summary">
+                    <div class="summary-box orange">
+                      <small>Total Earnings</small>
+                      <strong>Rs 0</strong>
+                      <p>Overall earnings</p>
+                    </div>
+                    <div class="summary-box white">
+                      <small>Wallet</small>
+                      <strong>Rs 0</strong>
+                      <p>Balance available</p>
+                      <span class="topup-btn">Top Up</span>
+                    </div>
+                  </div>
+
+                  <div class="request-card">
+                    <div class="request-top">
+                      <small>New Job Request</small>
+                      <span class="request-badge">New</span>
+                    </div>
+                    <h5>Home Cleaning</h5>
+                    <div class="request-location">
+                      <span aria-hidden="true">📍</span>
+                      <span>7MJCGCV5+3VX3, Ward Number 58, Kolkata, West Bengal 700107, India</span>
+                    </div>
+                    <div class="accept-btn">Accept Job</div>
+                  </div>
+                </div>
+
+                <div class="bottom-nav" aria-hidden="true">
+                  <div class="nav-item active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Home</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">↺</span>
+                    <span>History</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">⌖</span>
+                    <span>Map</span>
+                  </div>
+                  <div class="nav-item">
+                    <span class="nav-icon">◉</span>
+                    <span>Profile</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

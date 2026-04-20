@@ -1,0 +1,13 @@
+.git
+.vscode
+.firebase
+node_modules
+
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+
+.firebaserc
+firebase.json
+.firebaseignore
