@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,8 +8,26 @@
   <link rel="apple-touch-icon" href="assets/workmood-logo.png" />
   <meta
     name="description"
-    content="WorkMood helps workers find nearby job opportunities quickly with transparent earnings, secure profiles, and instant work requests."
+    content="WorkMood helps workers find nearby work opportunities quickly with transparent earnings, secure profiles, and instant work requests."
   />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://workmood.in/" />
+  <meta property="og:site_name" content="WorkMood" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WorkMood | Find Work, Fast" />
+  <meta
+    property="og:description"
+    content="WorkMood helps workers find nearby work opportunities quickly with transparent earnings, secure profiles, and instant work requests."
+  />
+  <meta property="og:url" content="https://workmood.in/" />
+  <meta property="og:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="WorkMood | Find Work, Fast" />
+  <meta
+    name="twitter:description"
+    content="WorkMood helps workers find nearby work opportunities quickly with transparent earnings, secure profiles, and instant work requests."
+  />
+  <meta name="twitter:image" content="https://workmood.in/assets/workmood-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,6 +35,24 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="shared-shell.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WorkMood",
+      "url": "https://workmood.in/",
+      "description": "WorkMood helps workers find nearby work opportunities quickly with transparent earnings, secure profiles, and instant work requests.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "WorkMood",
+        "url": "https://workmood.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://workmood.in/assets/workmood-logo.png"
+        }
+      }
+    }
+  </script>
   <style>
     :root {
       --bg: #f4fbff;
@@ -237,6 +273,13 @@
       align-items: center;
     }
 
+    .hero-grid > *,
+    .grid-2 > *,
+    .grid-3 > *,
+    .grid-4 > * {
+      min-width: 0;
+    }
+
     .hero h1 {
       font-size: clamp(2.7rem, 6vw, 5.4rem);
       line-height: 0.98;
@@ -248,6 +291,10 @@
 
     .hero h1 span {
       color: var(--accent);
+    }
+
+    .hero-title-break {
+      display: inline;
     }
 
     .hero p {
@@ -1167,6 +1214,19 @@
         padding-top: 42px;
       }
 
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .phone-shell,
+      .worker-phone {
+        margin: 0 auto;
+      }
+
       .hero-stats {
         grid-template-columns: 1fr;
       }
@@ -1193,8 +1253,34 @@
     }
 
     @media (max-width: 560px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
       .section {
-        padding: 78px 0;
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding: 30px 0 18px;
+      }
+
+      .hero-grid {
+        gap: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 11vw, 3rem);
+        margin-bottom: 16px;
+      }
+
+      .hero-title-break {
+        display: none;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 18px;
       }
 
       .btn,
@@ -1206,9 +1292,22 @@
 
       .hero-actions {
         flex-direction: column;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .hero-stats {
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .stat {
+        padding: 16px;
       }
 
       .phone-shell {
+        width: 100%;
+        max-width: 360px;
         padding: 14px;
       }
 
@@ -1231,10 +1330,40 @@
 
       .location-card {
         grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .location-copy strong {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        word-break: break-word;
       }
 
       .update-btn {
         width: 100%;
+      }
+
+      .floating-panel {
+        padding: 18px 16px;
+      }
+
+      .service-item {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+      }
+
+      .service-plus {
+        grid-column: 2;
+        justify-self: end;
+      }
+
+      .for-hire-cards {
+        gap: 14px;
+      }
+
+      .for-hire-cards .card {
+        padding: 22px;
       }
 
       .booking-card h4 {
@@ -1245,69 +1374,72 @@
         font-size: 2.6rem;
       }
     }
+
+    @media (max-width: 420px) {
+      .app-header {
+        flex-wrap: wrap;
+      }
+
+      .app-header h3 {
+        font-size: 1.55rem;
+        max-width: none;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .action-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+      }
+
+      .booking-card,
+      .activity-card {
+        padding: 18px;
+      }
+
+      .booking-card h4 {
+        font-size: 1.6rem;
+      }
+
+      .book-service-btn {
+        min-height: 64px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body data-page="home">
-  <header class="site-header" id="header">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="WorkMood Home">
-        <img class="brand-logo" src="assets/workmood-logo.png" alt="" aria-hidden="true" />
-        <span>WorkMood</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#home" aria-current="page">Home</a>
-        <a href="#how-it-works">How it Works</a>
-        <a href="#for-hire">For Hire</a>
-        <a href="#for-worker">For Worker</a>
-        <a href="#faq">FAQ</a>
-        <a href="contact%20page.html">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-secondary" href="app-launch-soon.html">Get Started</a>
-        <a class="btn btn-primary" href="tel:+916291822133">Chat Now</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-
-    <div class="container nav-panel" id="navPanel">
-      <div class="mobile-links">
-        <a href="#home" aria-current="page">Home</a>
-        <a href="#how-it-works">How it Works</a>
-        <a href="#for-hire">For Hire</a>
-        <a href="#for-worker">For Worker</a>
-        <a href="#faq">FAQ</a>
-        <a href="contact%20page.html">Contact</a>
-        <a href="app-launch-soon.html">Get Started</a>
-        <a href="tel:+916291822133">Call Us</a>
-      </div>
-    </div>
-  </header>
+  <div id="site-header"></div>
 
   <main id="home">
     <section class="hero section">
       <div class="container hero-grid">
-        <div class="reveal active">
+        <div class="reveal active hero-copy-block">
           <div class="badge"><span class="dot"></span> Find work nearby. Hire workers instantly</div>
-          <h1>Work directly Hire directly <span> <br> No brokers & hidden cuts.</span></h1>
+          <h1>Work directly Hire directly <span><br class="hero-title-break"> No brokers & hidden cuts.</span></h1>
           <p>
-           WorkMood helps you find nearby work, get hired fast, and earn with clear payment details. From helper work to skilled labour, kaam is just a few taps away. No brokers. No confusion.
+            WorkMood helps you find nearby work, get hired fast, and earn with clear  details. From helper work to skilled labour, kaam is just a few taps away. No brokers. No confusion.
           </p>
+          <p style="font-size:14px; color:#64748b;">
+WorkMood does not handle payments between hirers and workers. Workers pay a small ₹20 platform fee to continue receiving work opportunities.
+</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="app-launch-soon.html">Find work instantly</a>
-            <a class="btn btn-secondary" href="app-launch-soon.html">Hire workers now</a>
+            <a class="btn btn-primary" href="workmood-app.html">Find work instantly</a>
+            <a class="btn btn-secondary" href="workmood-app.html">Hire workers now</a>
           </div>
 
           <div class="hero-stats">
             <div class="stat">
-              <strong>Nearby Jobs</strong>
-              <span>Get work requests based on your location and job type.</span>
+              <strong>Nearby Works</strong>
+              <span>Get work requests based on your location and work type.</span>
             </div>
             <div class="stat">
               <strong>Transparent Earnings</strong>
-              <span>Know job amount, fees, and final earning clearly.</span>
+              <span>Know work details and expected earnings clearly before accepting work.</span>
             </div>
             <div class="stat">
               <strong>Verified Profiles</strong>
@@ -1344,8 +1476,8 @@
 
                   <div class="booking-card">
                     <span class="ready-chip">⚡ Ready to book</span>
-                    <h4>Book help near you</h4>
-                    <p>Find workers for daily tasks, urgent help, and skilled jobs in just a few taps.</p>
+                    <h4>Book worker near you</h4>
+                    <p>Find workers for daily tasks, urgent help, and skilled works in just a few taps.</p>
                     <div class="book-service-btn">Book Service <span aria-hidden="true">→</span></div>
                   </div>
 
@@ -1380,7 +1512,7 @@
 
           <div class="floating-panel">
             <h4>What do you need?</h4>
-            <p>Choose the exact service you want to book and continue with the job details.</p>
+            <p>Choose the exact service you want to book and continue with the work details.</p>
             <div class="service-list">
               <div class="service-item">
                 <span class="service-chip blue">CL</span>
@@ -1402,7 +1534,7 @@
                 <span class="service-chip orange">CN</span>
                 <div class="service-copy">
                   <strong>Construction &amp; Repair</strong>
-                  <span>Skilled site and fixing jobs</span>
+                  <span>Skilled site and fixing works</span>
                 </div>
                 <span class="service-plus">+</span>
               </div>
@@ -1412,38 +1544,8 @@
       </div>
     </section>
 
-    <section class="section" id="how-it-works">
-      <div class="container">
-        <div class="reveal">
-          <div class="badge"><span class="dot"></span> Simple worker journey</div>
-          <h2 class="section-title">How WorkMood works for workers</h2>
-          <p class="section-copy">
-            Designed to be simple even for first-time users. Create your profile, choose your skills, and start receiving nearby job opportunities.
-          </p>
-        </div>
-
-        <div class="steps grid-3" style="margin-top: 34px;">
-          <div class="card reveal">
-            <span class="step-number">1</span>
-            <h3>Create your profile</h3>
-            <p>Add your phone number, basic details, skill category, work area, and identity verification to build trust.</p>
-          </div>
-          <div class="card reveal">
-            <span class="step-number">2</span>
-            <h3>Get nearby job alerts</h3>
-            <p>Receive work requests based on location, availability, skill.</p>
-          </div>
-          <div class="card reveal">
-            <span class="step-number">3</span>
-            <h3>Accept and earn</h3>
-            <p>Review the job amount, timing, distance, and payment method before accepting. After completion, your earnings stay clear and visible.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="for-hire">
-      <div class="container grid-2" style="align-items: start;">
+      <div class="container grid-2 for-hire-layout" style="align-items: start;">
         <div class="reveal">
           <div class="badge"><span class="dot"></span> Built for faster hiring</div>
           <h2 class="section-title">For hire: find reliable workers without the usual back-and-forth</h2>
@@ -1452,15 +1554,15 @@
           </p>
 
           <ul class="check-list">
-            <li><span class="check">✓</span><span>Post urgent jobs and reach nearby workers faster.</span></li>
+            <li><span class="check">✓</span><span>Post urgent works and reach nearby workers faster.</span></li>
             <li><span class="check">✓</span><span>Check profiles, skills, and trust signals before assigning work.</span></li>
-            <li><span class="check">✓</span><span>See job scope, timing, and payout clearly in one place.</span></li>
+            <li><span class="check">✓</span><span>See work scope, timing, and distance clearly in one place.</span></li>
             <li><span class="check">✓</span><span>Hire for one-time tasks or repeat local work without brokers.</span></li>
             <li><span class="check">✓</span><span>Keep communication and payment expectations simple and transparent.</span></li>
           </ul>
         </div>
 
-        <div class="grid-2">
+        <div class="grid-2 for-hire-cards">
           <div class="card reveal">
             <div class="icon-wrap">⚡</div>
             <h3>Post and hire fast</h3>
@@ -1474,12 +1576,12 @@
           <div class="card reveal">
             <div class="icon-wrap">📍</div>
             <h3>Nearby availability</h3>
-            <p>Match with local workers so jobs start faster and travel delays stay lower.</p>
+            <p>Match with local workers so works start faster and travel delays stay lower.</p>
           </div>
           <div class="card reveal">
             <div class="icon-wrap">💸</div>
-            <h3>Clear job cost</h3>
-            <p>Share the budget, job hours, and payment mode upfront so there is less confusion later.</p>
+            <h3>Clear work cost</h3>
+            <p>Share the budget, work hours, and payment preference upfront so there is less confusion later.</p>
           </div>
         </div>
       </div>
@@ -1488,8 +1590,8 @@
     <section class="section" id="for-worker">
       <div class="container">
         <div class="reveal">
-          <div class="badge"><span class="dot"></span> Made for job seekers</div>
-          <h2 class="section-title">Find nearby jobs that match your skills</h2>
+          <div class="badge"><span class="dot"></span> Made for work seekers</div>
+          <h2 class="section-title">Find nearby works that match your skills</h2>
           <p class="section-copy">
             Whether you do helper work, cleaning, loading, or skilled trades, WorkMood helps you discover local opportunities and respond quickly.
           </p>
@@ -1498,23 +1600,24 @@
         <div class="grid-3" style="margin-top: 34px;">
           <div class="card reveal"><div class="icon-wrap">🧹</div><h3>Home Cleaning</h3><p>Popular in Cleaning &amp; Household for home help and regular cleaning requests.</p></div>
           <div class="card reveal"><div class="icon-wrap">⚡</div><h3>Electrician</h3><p>A high-demand Electrical &amp; Plumbing service for urgent repairs and daily fix work.</p></div>
-          <div class="card reveal"><div class="icon-wrap">🔧</div><h3>Plumber</h3><p>Commonly requested for leakage, fittings, and fast home or shop plumbing jobs.</p></div>
+          <div class="card reveal"><div class="icon-wrap">🔧</div><h3>Plumber</h3><p>Commonly requested for leakage, fittings, and fast home or shop plumbing works.</p></div>
           <div class="card reveal"><div class="icon-wrap">🧱</div><h3>Mason (Rajmistri)</h3><p>One of the most needed Construction &amp; Repair services for local site work.</p></div>
-          <div class="card reveal"><div class="icon-wrap">❄️</div><h3>AC Technician</h3><p>A popular Mechanical &amp; Technical service for cooling, servicing, and repair jobs.</p></div>
+          <div class="card reveal"><div class="icon-wrap">❄️</div><h3>AC Technician</h3><p>A popular Mechanical &amp; Technical service for cooling, servicing, and repair works.</p></div>
           <div class="card reveal"><div class="icon-wrap">📦</div><h3>Loading / Unloading Helper</h3><p>Regularly needed under General Labour / Helper for shifting and goods handling work.</p></div>
         </div>
 
         <div class="grid-2 worker-showcase">
           <div class="worker-copy card reveal">
             <div class="badge" style="margin-bottom: 14px;"><span class="dot"></span> Worker dashboard preview</div>
-            <h3>Keep workers online, visible, and ready to accept jobs</h3>
+            <h3>Keep workers online, visible, and ready to accept works</h3>
             <p>
-              This view shows the worker side of WorkMood with instant status control, earnings visibility, wallet access, and live job requests in one simple screen.
+              This view shows the worker side of WorkMood with instant status control, work activity tracking, platform fee access, and live work requests in one simple screen.
             </p>
             <ul class="worker-points">
               <li><span class="check">✓</span><span><strong>Go online fast:</strong> workers can switch availability anytime and start receiving nearby requests.</span></li>
-              <li><span class="check">✓</span><span><strong>Track earnings clearly:</strong> total earnings and wallet balance stay visible without confusion.</span></li>
-              <li><span class="check">✓</span><span><strong>Accept real jobs faster:</strong> new requests show location and action in a single tap flow.</span></li>
+              <li><span class="check">✓</span><span><strong>Track work activity clearly:</strong> work history and activity stay visible without confusion..</span></li>
+              <li><span class="check">✓</span><span><strong>Simple platform fee:</strong> after a work is completed, only ₹20 per work is charged so you can keep getting new work opportunities on WorkMood.</span></li>
+              <li><span class="check">✓</span><span><strong>Accept real works faster:</strong> new requests show location and action in a single tap flow.</span></li>
             </ul>
           </div>
 
@@ -1557,6 +1660,9 @@
                     </div>
                     <div class="summary-box white">
                       <small>Wallet</small>
+                      <span style="font-size:12px; color:#64748b;">
+                        Used for platform access fee only
+                      </span>
                       <strong>Rs 0</strong>
                       <p>Balance available</p>
                       <span class="topup-btn">Top Up</span>
@@ -1565,7 +1671,7 @@
 
                   <div class="request-card">
                     <div class="request-top">
-                      <small>New Job Request</small>
+                      <small>New work Request</small>
                       <span class="request-badge">New</span>
                     </div>
                     <h5>Home Cleaning</h5>
@@ -1573,28 +1679,11 @@
                       <span aria-hidden="true">📍</span>
                       <span>7MJCGCV5+3VX3, Ward Number 58, Kolkata, West Bengal 700107, India</span>
                     </div>
-                    <div class="accept-btn">Accept Job</div>
+                    <div class="accept-btn">Accept work</div>
                   </div>
                 </div>
 
-                <div class="bottom-nav" aria-hidden="true">
-                  <div class="nav-item active">
-                    <span class="nav-icon">⌂</span>
-                    <span>Home</span>
-                  </div>
-                  <div class="nav-item">
-                    <span class="nav-icon">↺</span>
-                    <span>History</span>
-                  </div>
-                  <div class="nav-item">
-                    <span class="nav-icon">⌖</span>
-                    <span>Map</span>
-                  </div>
-                  <div class="nav-item">
-                    <span class="nav-icon">◉</span>
-                    <span>Profile</span>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -1608,7 +1697,7 @@
           <div class="badge"><span class="dot"></span> Why choose WorkMood</div>
           <h2 class="section-title">Why people choose WorkMood</h2>
           <p class="section-copy">
-            WorkMood brings hiring and job discovery into one simple platform with faster matching, better trust, and clearer communication for everyone involved.
+            WorkMood brings hiring and work discovery into one simple platform with faster matching, better trust, and clearer communication for everyone involved.
           </p>
         </div>
 
@@ -1616,17 +1705,17 @@
           <div class="card reveal">
             <div class="icon-wrap">⚡</div>
             <h3>Faster connections</h3>
-            <p>Workers find nearby jobs quickly, and hirers can connect with available people without long delays.</p>
+            <p>Workers find nearby works quickly, and hirers can connect with available people without long delays.</p>
           </div>
           <div class="card reveal">
             <div class="icon-wrap">🛡</div>
             <h3>More trust</h3>
-            <p>Profiles, ratings, and job details help both sides feesl more confident before accepting work.</p>
+            <p>Profiles, ratings, and work details help both sides feel more confident before accepting work.</p>
           </div>
           <div class="card reveal">
             <div class="icon-wrap">💬</div>
             <h3>Clearer process</h3>
-            <p>From job scope to payment expectations, WorkMood keeps each step easier to understand and manage.</p>
+            <p>From work scope to payment expectations, WorkMood keeps each step easier to understand and manage.</p>
           </div>
         </div>
       </div>
@@ -1639,7 +1728,7 @@
         <div class="grid-4" style="margin-top: 34px;">
           <div class="card metric-card reveal">
             <div class="metric-value">24/7</div>
-            <div class="metric-label">Job discovery support</div>
+            <div class="metric-label">work discovery support</div>
           </div>
           <div class="card metric-card reveal">
             <div class="metric-value">100%</div>
@@ -1662,23 +1751,23 @@
         <div class="reveal">
           <div class="badge"><span class="dot"></span> Worker voices</div>
           <h2 class="section-title">What a strong landing page should show</h2>
-          <p class="section-copy">These example testimonials make the site feesl more real and trustworthy for visitors.</p>
+          <p class="section-copy">These example testimonials make the site feel more real and trustworthy for visitors.</p>
         </div>
 
         <div class="grid-3" style="margin-top: 34px;">
           <div class="card testimonial reveal">
             <div class="quote">“</div>
-            <p>I can quickly see nearby jobs and decide whether I want to accept. The payment breakdown feesls clear and fair.</p>
+            <p>I can quickly see nearby works and decide whether I want to accept. The payment breakdown feels clear and fair.</p>
             <div class="person"><div class="avatar">R</div><div><strong>Raju</strong><br><span class="metric-label">Construction helper</span></div></div>
           </div>
           <div class="card testimonial reveal">
             <div class="quote">“</div>
-            <p>The app gives me more confidence because profile details and work history matter. That helps me get repeat jobs.</p>
+            <p>The app gives me more confidence because profile details and work history matter. That helps me get repeat works.</p>
             <div class="person"><div class="avatar">S</div><div><strong>Shabana</strong><br><span class="metric-label">Cleaning professional</span></div></div>
           </div>
           <div class="card testimonial reveal">
             <div class="quote">“</div>
-            <p>I like that I can receive work based on area. It saves time and helps me focus on jobs that actually suit me.</p>
+            <p>I like that I can receive work based on area. It saves time and helps me focus on works that actually suit me.</p>
             <div class="person"><div class="avatar">A</div><div><strong>Arif</strong><br><span class="metric-label">Electrician</span></div></div>
           </div>
         </div>
@@ -1695,15 +1784,17 @@
         <div class="faq-list" style="margin-top: 34px;">
           <div class="faq reveal">
             <h3>Who can use WorkMood?</h3>
-            <p>Workers looking for local daily, instant, job opportunities across skilled and non-skilled categories.</p>
+            <p>Workers looking for local daily, instant, work opportunities across skilled and non-skilled categories.</p>
           </div>
           <div class="faq reveal">
             <h3>How do payments work?</h3>
-            <p>The app can support cash and online payment flows, while keeping the worker’s earnings breakdown visible and easy to understand.</p>
+            <p>WorkMood does not process payments between hirers and workers.
+Workers and hirers can decide payment terms independently.
+WorkMood only charges a small platform fee ₹20 per work from workers to continue receiving work opportunities.</p>
           </div>
           <div class="faq reveal">
             <h3>Why is location important?</h3>
-            <p>Location helps match workers with nearby jobs so travel is reduced and job acceptance becomes faster.</p>
+            <p>Location helps match workers with nearby works so travel is reduced and work acceptance becomes faster.</p>
           </div>
           <div class="faq reveal">
             <h3>Can skilled and non-skilled workers both join?</h3>
@@ -1722,7 +1813,7 @@
             <p class="section-copy" style="max-width: 640px;">This version is designed like a real product landing page with stronger sections, clear messaging, better trust signals, and a more professional mobile-style hero.</p>
           </div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="contact%20page.html">Contact Us</a>
+            <a class="btn btn-primary" href="contact-us.html">Contact Us</a>
             <a class="btn btn-secondary" href="#home">Back to top</a>
           </div>
         </div>
@@ -1730,62 +1821,23 @@
     </section>-->
   </main>
 
-  <footer class="site-footer" id="contact">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand" style="margin-bottom: 16px;">
-            <img class="brand-logo" src="assets/workmood-logo.png" alt="" aria-hidden="true" />
-            <span>WorkMood</span>
-          </div>
-          <p class="footer-copy">A modern workforce platform designed to help workers find local opportunities with more speed, trust, and transparency.</p>
-        </div>
+  <div id="site-footer"></div>
 
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <a href="#home">Home</a>
-          <a href="#how-it-works">How it Works</a>
-          <a href="#for-hire">For Hire</a>
-          <a href="#for-worker">For Worker</a>
-        </div>
+  <!-- Firebase SDKs (Compat version for easier integration with static scripts) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="#faq">FAQ</a>
-          <a href="contact%20page.html">Contact</a>
-          <a href="Privacy%20Policy.html">Privacy Policy</a>
-          <a href="Payments%20%26%20Refund%20Policy.html">Payments &amp; Refund Policy</a>
-          <a href="Terms&amp;Condi.html">Terms &amp; Conditions</a>
-        </div>
+  <!-- Initialize Firebase using the config file -->
+  <script type="module">
+    import { firebaseConfig } from './firebase-config.js';
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  </script>
 
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a>
-          <a href="tel:+916291822133">+91 6291822133</a>
-          <span>Kolkata, West Bengal, India</span>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 WorkMood. All rights reserved.</span>
-        <span></span>
-      </div>
-    </div>
-  </footer>
-
+  <script src="shared-shell.js"></script>
   <script>
-    const header = document.getElementById('header');
-    const toggle = document.getElementById('menuToggle');
-    const navPanel = document.getElementById('navPanel');
-    const mobileLinks = navPanel.querySelectorAll('a');
-
-    toggle?.addEventListener('click', () => {
-      header.classList.toggle('open');
-    });
-
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => header.classList.remove('open'));
-    });
 
     const observer = new IntersectionObserver(
       (entries) => {

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMood | How It Works</title>
+  <link rel="icon" type="image/png" href="assets/workmood-logo.png" />
+  <link rel="apple-touch-icon" href="assets/workmood-logo.png" />
+  <meta
+    name="description"
+    content="See how WorkMood works for workers, from profile setup and nearby work alerts to the platform's payment model."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://workmood.in/how-it-works" />
+  <meta property="og:site_name" content="WorkMood" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WorkMood | How It Works" />
+  <meta
+    property="og:description"
+    content="See how WorkMood works for workers, from profile setup and nearby work alerts to the platform's payment model."
+  />
+  <meta property="og:url" content="https://workmood.in/how-it-works" />
+  <meta property="og:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="WorkMood | How It Works" />
+  <meta
+    name="twitter:description"
+    content="See how WorkMood works for workers, from profile setup and nearby work alerts to the platform's payment model."
+  />
+  <meta name="twitter:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared-shell.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "WorkMood | How It Works",
+      "url": "https://workmood.in/how-it-works",
+      "description": "See how WorkMood works for workers, from profile setup and nearby work alerts to the platform's payment model.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "WorkMood",
+        "url": "https://workmood.in/"
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --accent: #f97316;
+      --accent-strong: #ea580c;
+      --accent-soft: #fff2e6;
+      --panel: rgba(255, 255, 255, 0.88);
+      --line: rgba(15, 23, 42, 0.12);
+      --muted: #425466;
+      --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(249, 115, 22, 0.1), transparent 22%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.3), transparent 32%),
+        radial-gradient(circle at top right, rgba(186, 230, 253, 0.45), transparent 28%),
+        linear-gradient(160deg, #ffffff 0%, #f4fbff 48%, #dff3ff 100%);
+    }
+
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .page-hero {
+      padding: 64px 0 40px;
+    }
+
+    .hero-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(223, 243, 255, 0.92));
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(249, 115, 22, 0.12));
+      border: 1px solid rgba(249, 115, 22, 0.14);
+      color: #0f172a;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(249, 115, 22, 0.35);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      height: 100%;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #fdba74);
+      color: #ffffff;
+      font-weight: 900;
+      margin-bottom: 16px;
+      box-shadow: 0 14px 24px rgba(249, 115, 22, 0.22);
+    }
+
+    .section-divider {
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .page-hero {
+        padding-top: 40px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body data-page="how-it-works">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-panel reveal active">
+          <div class="badge"><span class="dot"></span> How WorkMood works</div>
+          <h1 class="section-title">A simple flow for finding work and understanding platform charges</h1>
+          <p class="section-copy">
+            WorkMood is designed to keep work discovery simple for workers. Set up your profile, get nearby work alerts, and understand clearly how the platform fee works after a completed work.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="workmood-app.html">Get Started</a>
+            <a class="btn btn-secondary" href="/">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Simple worker journey</div>
+          <h2 class="section-title">How WorkMood works for workers</h2>
+          <p class="section-copy">
+            Designed to be simple even for first-time users. Create your profile, choose your skills, and start receiving nearby work opportunities.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 34px;">
+          <div class="card reveal">
+            <span class="step-number">1</span>
+            <h3>Create your profile</h3>
+            <p>Add your phone number, basic details, skill category, work area, and identity verification to build trust.</p>
+          </div>
+          <div class="card reveal">
+            <span class="step-number">2</span>
+            <h3>Get nearby work alerts</h3>
+            <p>Receive work requests based on location, availability, skill.</p>
+          </div>
+          <div class="card reveal">
+            <span class="step-number">3</span>
+            <h3>Accept and work</h3>
+            <p>Review work details like amount, timing, and distance before accepting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider">
+      <div class="container">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Payments &amp; Platform Model</div>
+          <h2 class="section-title">How payments work on WorkMood</h2>
+          <p class="section-copy">
+            WorkMood helps workers and hirers connect, while keeping platform access and work payments clearly separated.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 30px;">
+          <div class="card reveal">
+            <h3>Platform Role</h3>
+            <p>WorkMood connects workers with hirers for work opportunities. The platform does not handle payments between hirers and workers.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Worker Platform Fee</h3>
+            <p>Workers pay a small platform fee (₹20) after completing a work to continue receiving new work opportunities.</p>
+          </div>
+          <div class="card reveal">
+            <h3>No Direct Payment Handling</h3>
+            <p>Payments between hirers and workers happen outside the platform. WorkMood only charges for platform access.</p>
+          </div>
+          
+        </div>
+        <p style="margin-top:10px; color:#64748b;">
+WorkMood does not act as a payment intermediary or marketplace for financial transactions.
+</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="shared-shell.js"></script>
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el, index) => {
+      if (index === 0) return;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCyNmE55T_mNKjpAK6P1ckAkQYMuGR2GR0",
-  authDomain: "workmood-backend.firebaseapp.com",
+  authDomain: "workmood.in",
   databaseURL: "https://workmood-backend-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "workmood-backend",
   storageBucket: "workmood-backend.firebasestorage.app",

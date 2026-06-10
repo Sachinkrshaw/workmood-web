@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMood | About Us</title>
+  <link rel="icon" type="image/png" href="assets/workmood-logo.png" />
+  <link rel="apple-touch-icon" href="assets/workmood-logo.png" />
+  <meta
+    name="description"
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://workmood.in/about-us" />
+  <meta property="og:site_name" content="WorkMood" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WorkMood | About Us" />
+  <meta
+    property="og:description"
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+  />
+  <meta property="og:url" content="https://workmood.in/about-us" />
+  <meta property="og:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="WorkMood | About Us" />
+  <meta
+    name="twitter:description"
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+  />
+  <meta name="twitter:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared-shell.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "WorkMood | About Us",
+      "url": "https://workmood.in/about-us",
+      "description": "Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "WorkMood",
+        "url": "https://workmood.in/",
+        "logo": "https://workmood.in/assets/workmood-logo.png"
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      padding: 56px 0 100px;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero,
+    .grid-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+    }
+
+    .hero {
+      padding: 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-strong);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      max-width: 12ch;
+    }
+
+    .hero-copy,
+    .grid-card p,
+    .point-list li {
+      color: var(--muted);
+    }
+
+    .hero-copy {
+      max-width: 68ch;
+      font-size: 1.05rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-card {
+      padding: 28px;
+    }
+
+    .grid-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .point-list {
+      margin: 16px 0 0 20px;
+    }
+
+    .point-list li + li {
+      margin-top: 8px;
+    }
+
+    .cta-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card p {
+      max-width: 52ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-top: 34px;
+      }
+
+      .hero,
+      .grid-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .cta-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body data-page="about">
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-shell">
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> About WorkMood</div>
+        <h1>Built to make local work easier to find and easier to trust.</h1>
+        <p class="hero-copy">
+          WorkMood is a local workforce platform focused on helping workers and hirers connect faster,
+          with clearer expectations around location, timing, and platform usage. We aim to remove the
+          usual confusion, delay, and dependency on middlemen from everyday work discovery.
+        </p>
+      </section>
+
+      <section class="content-grid" aria-label="About WorkMood details">
+        <article class="grid-card">
+          <h2>Our mission</h2>
+          <p>
+            Create a simpler and more transparent way for people to discover nearby work opportunities
+            and hire local help with confidence.
+          </p>
+        </article>
+
+        <article class="grid-card">
+          <h2>What we value</h2>
+          <ul class="point-list">
+            <li>Faster local connections between hirers and workers</li>
+            <li>Clear platform information without hidden cuts</li>
+            <li>Trust signals that help both sides decide quickly</li>
+          </ul>
+        </article>
+
+        <article class="grid-card">
+          <h2>How the platform works</h2>
+          <p>
+            WorkMood helps users discover and manage work opportunities. Payments between hirers and
+            workers are decided directly between them, while WorkMood focuses on discovery, trust, and access.
+          </p>
+        </article>
+      </section>
+
+      <section class="grid-card cta-card">
+        <div>
+          <h2>Want to know more?</h2>
+          <p>
+            Explore how the platform works, contact the team, or download the Android app to see the
+            WorkMood experience in action.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="how-it-works.html">How It Works</a>
+          <a class="btn btn-secondary" href="contact-us.html">Contact Us</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="shared-shell.js"></script>
+</body>
+</html>

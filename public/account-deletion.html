@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMood | Account Deletion</title>
+  <link rel="icon" type="image/png" href="assets/workmood-logo.png" />
+  <link rel="apple-touch-icon" href="assets/workmood-logo.png" />
+  <meta
+    name="description"
+    content="Request WorkMood account deletion, understand processing timelines, retained records, and support contact details."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://workmood.in/account-deletion" />
+  <meta property="og:site_name" content="WorkMood" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WorkMood | Account Deletion" />
+  <meta
+    property="og:description"
+    content="Request WorkMood account deletion, understand processing timelines, retained records, and support contact details."
+  />
+  <meta property="og:url" content="https://workmood-backend.web.app/account-deletion" />
+  <meta property="og:image" content="https://workmood-backend.web.app/assets/workmood-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="WorkMood | Account Deletion" />
+  <meta
+    name="twitter:description"
+    content="Request WorkMood account deletion, understand processing timelines, retained records, and support contact details."
+  />
+  <meta name="twitter:image" content="https://workmood.in/assets/workmood-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared-shell.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "WorkMood | Account Deletion",
+      "url": "https://workmood.in/account-deletion",
+      "description": "Request WorkMood account deletion, understand processing timelines, retained records, and support contact details.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "WorkMood",
+        "url": "https://workmood.in/"
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      padding: 56px 0 100px;
+    }
+
+    .page-shell {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero,
+    .content-card,
+    .contact-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      border-radius: 32px;
+      padding: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.12), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-grid,
+    .content-grid {
+      display: grid;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-strong);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin: 0 0 16px;
+      max-width: 10ch;
+    }
+
+    .section-copy,
+    .section-list li,
+    .info-card p,
+    .support-copy {
+      color: var(--muted);
+    }
+
+    .hero-copy {
+      max-width: 62ch;
+      font-size: 1.03rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(249, 115, 22, 0.24);
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .info-card,
+    .contact-card,
+    .content-card {
+      border-radius: 28px;
+    }
+
+    .info-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.96));
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      padding: 24px;
+    }
+
+    .info-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .fact {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .fact strong,
+    .section-title,
+    .section-number {
+      color: #0f172a;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .content-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-card {
+      padding: 28px;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(125, 211, 252, 0.2);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 1.32rem;
+      margin: 0 0 12px;
+    }
+
+    .section-copy {
+      margin: 0 0 14px;
+    }
+
+    .section-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .section-list li + li {
+      margin-top: 8px;
+    }
+
+    .contact-card {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.05;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .support-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .legal-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .legal-link {
+      display: grid;
+      gap: 4px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(244, 251, 255, 0.92);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      font-weight: 700;
+    }
+
+    .legal-link span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .content-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-top: 34px;
+      }
+
+      .hero,
+      .content-card,
+      .contact-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .hero-actions,
+      .support-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .support-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body data-page="account-deletion">
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-shell">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Google Play compliance and user support</div>
+            <h1>WorkMood Account Deletion</h1>
+            <p class="hero-copy">
+              WorkMood lets users request account deletion by email. Send your request to
+              <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a> and include
+              your registered phone number so our team can verify the account and process
+              the request safely.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-accent" href="mailto:workmood26@gmail.com">Email Support</a>
+              
+            </div>
+            <p class="hero-note">Standard processing time: 7-30 working days after verification.</p>
+          </div>
+
+          <aside class="info-card" aria-label="Deletion overview">
+            <h2>Before you send a request</h2>
+            <p>
+              Please email from your preferred contact address and mention the phone number
+              registered on your WorkMood account to help us validate the request faster.
+            </p>
+            <div class="quick-facts">
+              <div class="fact">
+                <strong>Verification</strong>
+                <span>We confirm the request against your registered phone number.</span>
+              </div>
+              <div class="fact">
+                <strong>Secure services</strong>
+                <span>WorkMood uses Firebase Authentication and Razorpay to support secure account and payment-related services.</span>
+              </div>
+              <div class="fact">
+                <strong>Possible delays</strong>
+                <span>Active disputes, open transactions, refunds, or compliance checks may extend timelines.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="Account deletion details">
+        <article class="content-card">
+          <div class="section-number">1</div>
+          <h2 class="section-title">Account Deletion Request</h2>
+          <p class="section-copy">
+            To request deletion of your WorkMood account, email
+            <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a>. For security,
+            include the registered phone number linked to the account you want removed.
+          </p>
+          <ul class="section-list">
+            <li>Use the subject line "WorkMood Account Deletion Request" for faster routing.</li>
+            <li>Requests may be verified before deletion begins.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">2</div>
+          <h2 class="section-title">How Users Can Delete Their Account</h2>
+          <ul class="section-list">
+            <li>Email <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a> from any contact address you prefer.</li>
+            <li>Mention your registered phone number and any account identification details that help us locate the profile.</li>
+            <li>Wait for confirmation from WorkMood support while the request is reviewed and processed.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">3</div>
+          <h2 class="section-title">Data That Will Be Deleted</h2>
+          <p class="section-copy">
+            Once the deletion request is approved, WorkMood removes the account and the
+            personal data associated with it from active systems, except where retention is
+            required by law or for legitimate business obligations.
+          </p>
+          <ul class="section-list">
+            <li>Profile details such as name, registered phone number, profile photo, and address information.</li>
+            <li>Account preferences, profile content, and app records no longer needed for legal or security purposes.</li>
+            <li>Authentication-related account records managed for WorkMood services.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">4</div>
+          <h2 class="section-title">Data That May Be Retained</h2>
+          <p class="section-copy">
+            Some records may need to be retained for legal, fraud prevention, tax, payment,
+            audit, or compliance purposes even after an account deletion request is completed.
+          </p>
+          <ul class="section-list">
+            <li>Transaction or billing records connected to platform fees or financial reporting.</li>
+            <li>Logs and records needed to investigate abuse, fraud, safety incidents, or policy violations.</li>
+            <li>Information retained to satisfy legal obligations, dispute handling, or regulatory requirements.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">5</div>
+          <h2 class="section-title">Processing Time</h2>
+          <p class="section-copy">
+            Account and personal data are generally deleted within <strong>7-30 working days</strong>
+            after the request is verified.
+          </p>
+          <ul class="section-list">
+            <li>Processing may take longer if there are active disputes, unresolved support cases, or ongoing transactions.</li>
+            <li>Refund reviews, payment reconciliation, or compliance checks can also delay final deletion.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">6</div>
+          <h2 class="section-title">Contact Support</h2>
+          <p class="section-copy">
+            If you need help with an account deletion request or want an update on an existing
+            request, contact WorkMood support directly by email.
+          </p>
+          <ul class="section-list">
+            <li>Email: <a href="mailto:workmood26@gmail.com">workmood26@gmail.com</a></li>
+            <li>Please include your registered phone number in every deletion-related email.</li>
+          </ul>
+        </article>
+
+        <article class="content-card">
+          <div class="section-number">7</div>
+          <h2 class="section-title">Secure Services Used by WorkMood</h2>
+          <p class="section-copy">
+            WorkMood uses <strong>Firebase Authentication</strong> to support secure sign-in
+            and identity verification flows, and <strong>Razorpay</strong> for secure
+            payment-related processing where applicable.
+          </p>
+          <ul class="section-list">
+            <li>These service providers help WorkMood deliver account access and payment support securely.</li>
+            <li>WorkMood does not state that it stores full card or bank details when payment processing is handled by Razorpay.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="contact-card">
+        <div>
+          <h2>Need to request deletion now?</h2>
+          <p class="support-copy">
+            Send an email to WorkMood support and include your registered phone number.
+            This public page is intended to help users and Google Play reviewers clearly
+            understand the account deletion process, timelines, and retention exceptions.
+          </p>
+          <div class="support-actions">
+            <a class="btn btn-accent" href="mailto:workmood26@gmail.com">Request Account Deletion</a>
+            <a class="btn btn-secondary" href="mailto:workmood26@gmail.com">Contact Support</a>
+          </div>
+        </div>
+
+        <div class="legal-links" aria-label="Related legal pages">
+          <a class="legal-link" href="privacy-policy.html">
+            Privacy Policy
+            <span>See how WorkMood collects and handles personal data.</span>
+          </a>
+          <a class="legal-link" href="terms-and-conditions.html">
+            Terms &amp; Conditions
+            <span>Review platform rules, responsibilities, and account use.</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="shared-shell.js"></script>
+</body>
+</html>

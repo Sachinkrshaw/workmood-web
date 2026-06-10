@@ -6,24 +6,30 @@
   const phoneLabel = "+91 6291822133";
 
   const route = {
-    home: isHome ? "#home" : homeUrl,
-    howItWorks: isHome ? "#how-it-works" : homeUrl + "#how-it-works",
-    forHire: isHome ? "#for-hire" : homeUrl + "#for-hire",
-    forWorker: isHome ? "#for-worker" : homeUrl + "#for-worker",
-    faq: isHome ? "#faq" : homeUrl + "#faq",
-    demo: "app-launch-soon.html",
-    contact: "contact%20page.html",
-    privacy: "Privacy%20Policy.html",
-    payments: "Payments%20%26%20Refund%20Policy.html",
-    terms: "Terms&Condi.html"
+    home: homeUrl,
+    howItWorks: "how-it-works.html",
+    forHire: isHome ? "#for-hire" : "index.html#for-hire",
+    forWorker: isHome ? "#for-worker" : "index.html#for-worker",
+    faq: isHome ? "#faq" : "index.html#faq",
+    demo: "workmood-app.html",
+    contact: "contact-us.html",
+    about: "about-us.html",
+    accountDeletion: "account-deletion.html",
+    privacy: "privacy-policy.html",
+    payments: "payments-refund-policy.html",
+    terms: "terms-and-conditions.html"
   };
 
   const currentPage = {
     home: page === "home" ? route.home : null,
+    howItWorks: page === "how-it-works" ? route.howItWorks : null,
     contact: page === "contact" ? route.contact : null,
+    about: page === "about" ? route.about : null,
+    accountDeletion: page === "account-deletion" ? route.accountDeletion : null,
     privacy: page === "privacy" ? route.privacy : null,
     payments: page === "payments" ? route.payments : null,
-    terms: page === "terms" ? route.terms : null
+    terms: page === "terms" ? route.terms : null,
+    app: page === "app" ? route.demo : null
   };
 
   const headerMount = document.getElementById("site-header");
@@ -40,7 +46,7 @@
 
           <nav class="nav-links" aria-label="Primary navigation">
             <a href="${route.home}"${currentPage.home ? ' aria-current="page"' : ""}>Home</a>
-            <a href="${route.howItWorks}">How it Works</a>
+            <a href="${route.howItWorks}"${currentPage.howItWorks ? ' aria-current="page"' : ""}>How it Works</a>
             <a href="${route.forHire}">For Hire</a>
             <a href="${route.forWorker}">For Worker</a>
             <a href="${route.faq}">FAQ</a>
@@ -48,8 +54,8 @@
           </nav>
 
           <div class="nav-actions">
-            <a class="btn btn-secondary" href="${route.demo}">Get Started</a>
-            <a class="btn btn-primary" href="${phoneHref}">Call Us</a>
+            <a class="btn btn-secondary" href="${route.demo}"${currentPage.app ? ' aria-current="page"' : ""}>Get Started</a>
+            <a class="btn btn-primary" href="${phoneHref}">Chat Now</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
           </div>
         </div>
@@ -57,12 +63,12 @@
         <div class="container nav-panel" id="navPanel">
           <div class="mobile-links">
             <a href="${route.home}"${currentPage.home ? ' aria-current="page"' : ""}>Home</a>
-            <a href="${route.howItWorks}">How it Works</a>
+            <a href="${route.howItWorks}"${currentPage.howItWorks ? ' aria-current="page"' : ""}>How it Works</a>
             <a href="${route.forHire}">For Hire</a>
             <a href="${route.forWorker}">For Worker</a>
             <a href="${route.faq}">FAQ</a>
             <a href="${route.contact}"${currentPage.contact ? ' aria-current="page"' : ""}>Contact</a>
-            <a href="${route.demo}">Get Started</a>
+            <a href="${route.demo}"${currentPage.app ? ' aria-current="page"' : ""}>Get Started</a>
             <a href="${phoneHref}">Call Us</a>
           </div>
         </div>
@@ -86,7 +92,7 @@
             <div class="footer-links">
               <h4>Navigation</h4>
               <a href="${route.home}">Home</a>
-              <a href="${route.howItWorks}">How it Works</a>
+              <a href="${route.howItWorks}"${currentPage.howItWorks ? ' aria-current="page"' : ""}>How it Works</a>
               <a href="${route.forHire}">For Hire</a>
               <a href="${route.forWorker}">For Worker</a>
             </div>
@@ -94,7 +100,9 @@
             <div class="footer-links">
               <h4>Quick Links</h4>
               <a href="${route.faq}">FAQ</a>
+              <a href="${route.about}"${currentPage.about ? ' aria-current="page"' : ""}>About Us</a>
               <a href="${route.contact}">Contact</a>
+              <a href="${route.accountDeletion}"${currentPage.accountDeletion ? ' aria-current="page"' : ""}>Account Deletion</a>
               <a href="${route.privacy}"${currentPage.privacy ? ' aria-current="page"' : ""}>Privacy Policy</a>
               <a href="${route.payments}"${currentPage.payments ? ' aria-current="page"' : ""}>Payments &amp; Refund Policy</a>
               <a href="${route.terms}"${currentPage.terms ? ' aria-current="page"' : ""}>Terms &amp; Conditions</a>

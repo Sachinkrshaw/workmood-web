@@ -6,6 +6,117 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false,
+
+    "rewrites": [
+      { "source": "/how-it-works", "destination": "/how-it-works.html" },
+      { "source": "/workmood-app", "destination": "/workmood-app.html" },
+      { "source": "/account-deletion", "destination": "/account-deletion.html" },
+      { "source": "/about-us", "destination": "/about-us.html" },
+      { "source": "/contact-us", "destination": "/contact-us.html" },
+      { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+      { "source": "/payments-refund-policy", "destination": "/payments-refund-policy.html" },
+      { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html" },
+      { "source": "/", "destination": "/index.html" }
+    ],
+
+    "redirects": [
+      {
+        "source": "/index.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/how-it-works.html",
+        "destination": "/how-it-works",
+        "type": 301
+      },
+      {
+        "source": "/workmood-app.html",
+        "destination": "/workmood-app",
+        "type": 301
+      },
+      {
+        "source": "/account-deletion.html",
+        "destination": "/account-deletion",
+        "type": 301
+      },
+      {
+        "source": "/about-us.html",
+        "destination": "/about-us",
+        "type": 301
+      },
+      {
+        "source": "/contact page",
+        "destination": "/contact-us",
+        "type": 301
+      },
+      {
+        "source": "/contact page.html",
+        "destination": "/contact-us",
+        "type": 301
+      },
+      {
+        "source": "/contact%20page",
+        "destination": "/contact-us",
+        "type": 301
+      },
+      {
+        "source": "/contact%20page.html",
+        "destination": "/contact-us",
+        "type": 301
+      },
+      {
+        "source": "/Privacy Policy",
+        "destination": "/privacy-policy",
+        "type": 301
+      },
+      {
+        "source": "/Privacy Policy.html",
+        "destination": "/privacy-policy",
+        "type": 301
+      },
+      {
+        "source": "/Privacy%20Policy",
+        "destination": "/privacy-policy",
+        "type": 301
+      },
+      {
+        "source": "/Privacy%20Policy.html",
+        "destination": "/privacy-policy",
+        "type": 301
+      },
+      {
+        "source": "/Payments & Refund Policy",
+        "destination": "/payments-refund-policy",
+        "type": 301
+      },
+      {
+        "source": "/Payments & Refund Policy.html",
+        "destination": "/payments-refund-policy",
+        "type": 301
+      },
+      {
+        "source": "/Payments%20%26%20Refund%20Policy",
+        "destination": "/payments-refund-policy",
+        "type": 301
+      },
+      {
+        "source": "/Payments%20%26%20Refund%20Policy.html",
+        "destination": "/payments-refund-policy",
+        "type": 301
+      },
+      {
+        "source": "/Terms&Condi",
+        "destination": "/terms-and-conditions",
+        "type": 301
+      },
+      {
+        "source": "/Terms&Condi.html",
+        "destination": "/terms-and-conditions",
+        "type": 301
+      }
+    ],
+
     "headers": [
       {
         "source": "/assets/**",
@@ -19,3 +130,4 @@
     ]
   }
 }
+
