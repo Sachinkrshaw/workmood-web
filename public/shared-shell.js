@@ -49,7 +49,7 @@
             <a href="${route.howItWorks}"${currentPage.howItWorks ? ' aria-current="page"' : ""}>How it Works</a>
             <a href="${route.forHire}">For Hire</a>
             <a href="${route.forWorker}">For Worker</a>
-            <a href="${route.faq}">FAQ</a>
+            <a href="${route.about}"${currentPage.about ? ' aria-current="page"' : ""}>About Us</a>
             <a href="${route.contact}"${currentPage.contact ? ' aria-current="page"' : ""}>Contact</a>
           </nav>
 
@@ -66,7 +66,7 @@
             <a href="${route.howItWorks}"${currentPage.howItWorks ? ' aria-current="page"' : ""}>How it Works</a>
             <a href="${route.forHire}">For Hire</a>
             <a href="${route.forWorker}">For Worker</a>
-            <a href="${route.faq}">FAQ</a>
+            <a href="${route.about}"${currentPage.about ? ' aria-current="page"' : ""}>About Us</a>
             <a href="${route.contact}"${currentPage.contact ? ' aria-current="page"' : ""}>Contact</a>
             <a href="${route.demo}"${currentPage.app ? ' aria-current="page"' : ""}>Get Started</a>
             <a href="${phoneHref}">Call Us</a>

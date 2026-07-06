@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="assets/workmood-logo.png" />
   <meta
     name="description"
-    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the story behind the platform founded by Sachin Kumar Shaw."
   />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://workmood.in/about-us" />
@@ -17,7 +17,7 @@
   <meta property="og:title" content="WorkMood | About Us" />
   <meta
     property="og:description"
-    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the story behind the platform founded by Sachin Kumar Shaw."
   />
   <meta property="og:url" content="https://workmood.in/about-us" />
   <meta property="og:image" content="https://workmood.in/assets/workmood-logo.png" />
@@ -25,7 +25,7 @@
   <meta name="twitter:title" content="WorkMood | About Us" />
   <meta
     name="twitter:description"
-    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform."
+    content="Learn about WorkMood, our mission to connect local workers and hirers faster, and the story behind the platform founded by Sachin Kumar Shaw."
   />
   <meta name="twitter:image" content="https://workmood.in/assets/workmood-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,12 +41,16 @@
       "@type": "AboutPage",
       "name": "WorkMood | About Us",
       "url": "https://workmood.in/about-us",
-      "description": "Learn about WorkMood, our mission to connect local workers and hirers faster, and the principles behind the platform.",
+      "description": "Learn about WorkMood, our mission to connect local workers and hirers faster, and the story behind the platform founded by Sachin Kumar Shaw.",
       "mainEntity": {
         "@type": "Organization",
         "name": "WorkMood",
         "url": "https://workmood.in/",
-        "logo": "https://workmood.in/assets/workmood-logo.png"
+        "logo": "https://workmood.in/assets/workmood-logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Sachin Kumar Shaw"
+        }
       }
     }
   </script>
@@ -68,7 +72,8 @@
     }
 
     .hero,
-    .grid-card {
+    .grid-card,
+    .full-card {
       background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(15, 23, 42, 0.08);
       box-shadow: var(--shadow);
@@ -102,21 +107,26 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.1;
       letter-spacing: -0.04em;
-      margin-bottom: 16px;
-      max-width: 12ch;
+      margin-bottom: 20px;
+      max-width: 24ch;
     }
 
     .hero-copy,
     .grid-card p,
-    .point-list li {
+    .full-card p,
+    .cta-card p {
       color: var(--muted);
     }
 
+    .hero-copy p + p {
+      margin-top: 16px;
+    }
+
     .hero-copy {
-      max-width: 68ch;
+      max-width: 80ch;
       font-size: 1.05rem;
     }
 
@@ -126,21 +136,17 @@
       gap: 24px;
     }
 
-    .grid-card {
+    .grid-card, .full-card {
       padding: 28px;
     }
 
-    .grid-card h2 {
+    .grid-card h2, .full-card h2 {
       font-size: 1.3rem;
       margin-bottom: 12px;
     }
 
-    .point-list {
-      margin: 16px 0 0 20px;
-    }
-
-    .point-list li + li {
-      margin-top: 8px;
+    .full-card p + p {
+      margin-top: 12px;
     }
 
     .cta-card {
@@ -174,7 +180,8 @@
       }
 
       .hero,
-      .grid-card {
+      .grid-card,
+      .full-card {
         padding: 24px;
         border-radius: 24px;
       }
@@ -190,39 +197,70 @@
 
   <main>
     <div class="page-shell">
-      <section class="hero">
-        <div class="eyebrow"><span class="dot"></span> About WorkMood</div>
-        <h1>Built to make local work easier to find and easier to trust.</h1>
-        <p class="hero-copy">
-          WorkMood is a local workforce platform focused on helping workers and hirers connect faster,
-          with clearer expectations around location, timing, and platform usage. We aim to remove the
-          usual confusion, delay, and dependency on middlemen from everyday work discovery.
+      <section class="full-card">
+        <h2>Meet the Founder</h2>
+        <p>
+          WorkMood was founded by <strong>Sachin Kumar Shaw</strong>, a technology enthusiast and entrepreneur passionate about 
+          solving real-world problems through digital solutions.
+        </p>
+        <p>
+          The idea for WorkMood came from observing the challenges faced by both workers and hirers in local service 
+          markets. While many customers struggled to find available workers when needed, many workers were 
+          simultaneously missing opportunities because of location barriers and inefficient communication channels.
+        </p>
+        <p>
+          Recognizing this gap, Sachin started WorkMood with the goal of creating a platform that makes local work 
+          opportunities easier to discover and easier to access. Today, WorkMood continues to focus on building 
+          technology that supports local workers, empowers communities, and improves the way people connect for work.
         </p>
       </section>
 
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> About WorkMood</div>
+        <h1>Connecting Local Workers and Hirers, Faster</h1>
+        <div class="hero-copy">
+          <p>
+            WorkMood was created to solve a problem that exists in many local communities. 
+            People often need workers for household services, repairs, maintenance, delivery, and other tasks, 
+            but finding available and reliable workers nearby can be difficult. At the same time, many skilled 
+            workers struggle to find consistent opportunities because available jobs are often located far from 
+            where they live.
+          </p>
+          <p>
+            We also observed that workers and hirers frequently depend on brokers or intermediaries to connect 
+            with each other, which can increase costs, reduce transparency, and limit direct communication. 
+            WorkMood was built to make local hiring simpler, faster, and more accessible for everyone.
+          </p>
+        </div>
+      </section>
+
+      
+
       <section class="content-grid" aria-label="About WorkMood details">
         <article class="grid-card">
-          <h2>Our mission</h2>
+          <h2>Our Mission</h2>
           <p>
-            Create a simpler and more transparent way for people to discover nearby work opportunities
-            and hire local help with confidence.
+            Our mission is to help local workers and hirers connect more efficiently through technology. 
+            We aim to create a platform where workers can discover opportunities closer to home, while 
+            hirers can quickly find suitable local workers based on their needs.
           </p>
         </article>
 
         <article class="grid-card">
-          <h2>What we value</h2>
-          <ul class="point-list">
-            <li>Faster local connections between hirers and workers</li>
-            <li>Clear platform information without hidden cuts</li>
-            <li>Trust signals that help both sides decide quickly</li>
-          </ul>
+          <h2>What We Do</h2>
+          <p>
+            WorkMood is a workforce discovery platform that helps connect workers and hirers within local communities. 
+            The platform allows workers to create profiles, showcase their skills, and receive work opportunities, 
+            while hirers can discover and contact workers based on location and service requirements.
+          </p>
         </article>
 
         <article class="grid-card">
-          <h2>How the platform works</h2>
+          <h2>Our Vision</h2>
           <p>
-            WorkMood helps users discover and manage work opportunities. Payments between hirers and
-            workers are decided directly between them, while WorkMood focuses on discovery, trust, and access.
+            We believe finding local work opportunities should be simple, transparent, and accessible. 
+            Our vision is to strengthen local employment networks by helping workers find more opportunities 
+            and enabling hirers to access local talent more easily.
           </p>
         </article>
       </section>
@@ -231,13 +269,14 @@
         <div>
           <h2>Want to know more?</h2>
           <p>
-            Explore how the platform works, contact the team, or download the Android app to see the
-            WorkMood experience in action.
+            Explore how the platform works, contact the team, or download the Android app to see the 
+            WorkMood experience in action. For business inquiries, partnerships, or support, feel free to drop us an email.
           </p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary" href="how-it-works.html">How It Works</a>
           <a class="btn btn-secondary" href="contact-us.html">Contact Us</a>
+          <a class="btn btn-secondary" href="mailto:workmood26@gmail.com">Email Support</a>
         </div>
       </section>
     </div>
