@@ -87,6 +87,23 @@
                 <span>WorkMood</span>
               </div>
               <p class="footer-copy">A modern workforce platform designed to help workers find local opportunities with more speed, trust, and transparency.</p>
+              <div class="footer-social" aria-label="Social media links">
+                <a href="https://www.facebook.com/share/1JCP3UqHPh/" target="_blank" rel="noopener noreferrer" aria-label="WorkMood on Facebook">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M14.2 8.6V6.9c0-.8.5-1 1.1-1h1.5V3.2c-.7-.1-1.5-.2-2.2-.2-2.3 0-3.9 1.4-3.9 4v1.6H8.2v3h2.5V21h3.1v-9.4h2.6l.4-3h-3Z" />
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/workmood.in?igsh=dWpybGlsanY3djF0" target="_blank" rel="noopener noreferrer" aria-label="WorkMood on Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 3h8c2.8 0 5 2.2 5 5v8c0 2.8-2.2 5-5 5H8c-2.8 0-5-2.2-5-5V8c0-2.8 2.2-5 5-5Zm0 2.2C6.4 5.2 5.2 6.4 5.2 8v8c0 1.6 1.2 2.8 2.8 2.8h8c1.6 0 2.8-1.2 2.8-2.8V8c0-1.6-1.2-2.8-2.8-2.8H8Zm4 3.1a3.7 3.7 0 1 1 0 7.4 3.7 3.7 0 0 1 0-7.4Zm0 2.2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm4.1-2.6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" />
+                  </svg>
+                </a>
+                <a href="https://youtube.com/@workmoodindia?si=C14_oqrMHCdIGpP8" target="_blank" rel="noopener noreferrer" aria-label="WorkMood on YouTube">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.8 4 12 4 12 4s-3.8 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2 9 2 10.9v1.8c0 1.9.4 3.7.4 3.7s.2 1.5.8 2.1c.8.8 1.9.8 2.4.9 1.7.2 6.4.2 6.4.2s3.8 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.4-1.8.4-3.7v-1.8c0-1.9-.4-3.7-.4-3.7ZM10 15.1V8.8l5.8 3.2-5.8 3.1Z" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div class="footer-links">
